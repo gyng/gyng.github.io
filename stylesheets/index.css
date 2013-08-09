@@ -1,0 +1,12 @@
+/*h2:after {
+    content: " \2767";
+}*/
+
+.project .project-image {
+    width: 85%;
+    border: solid 1px #DDD;
+}
+
+.project p {
+    width: 85%;
+}
