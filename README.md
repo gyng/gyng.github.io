@@ -1,3 +1,3 @@
 # projects
 
-A simple static site listings selected projects.
+A simple static site listing selected projects.
