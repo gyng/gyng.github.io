@@ -1,0 +1,74 @@
+\documentclass[line, margin]{res}
+% \usepackage[a4paper, margin=1.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{kpfonts,baskervald}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{url}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\hypersetup{
+    breaklinks=true,
+    pdfauthor={Ng Guoyou},
+    pdftitle={Ng Guoyou --- Resume},
+    colorlinks=true,
+    linktoc=all,
+    urlcolor=darkblue,
+    linkcolor=darkgray,
+    citecolor=black,
+    pdfborder={0 0 0}
+}
+
+\newcommand{\at}[0]{@}
+
+\begin{document}
+\name{\huge{Ng Guoyou}}
+\address{
+    \href{mailto:ng.guoyou+cv\at gmail.com}{ng.guoyou\at gmail.com}
+    \href{http://github.com/gyng}{http://github.com/gyng}
+}
+
+\begin{resume}
+    \section{EDUCATION}
+        Bachelor of Computing (Communications \& Media) Hons. \\
+        National University of Singapore \\
+        2011--2015
+
+    \section{SKILLS}
+        Comfortable with \\
+        \begin{itemize}[leftmargin=*]
+        \item Ruby
+        \item JavaScript
+        \item Java
+        \item \textsc{HTML, CSS}
+        \end{itemize}
+
+        Some experience with Rust, C, Python, SQL, Ruby On Rails, Android, Git, Photoshop, Illustrator.
+
+        Native English and Mandarin Chinese speaker.
+
+    \section{EXPERIENCE}
+        \textbf{Roomorama} \\
+        \textbf{Software Developer Intern}, May--August 2013 \\
+        Built a business statistics dashboard in Ruby and CoffeeScript to aid decision-making. Worked on the main Ruby On Rails application implementing features and bug fixes, including a locale-aware ElasticSearch implementation for room listings and third-party inventory integration. Gained exposure working in an agile devops environment.
+
+        \textbf{Freelance} \\
+        \textbf{Web Designer}, 2012--2014 \\
+        Worked with several clients on short-term jobs to design and implement web designs as a freelance contractor. Used HTML, CSS and JavaScript for frontend projects. Interacted with clients to fulfill their business requirements. Amount of design ranged from created-from-scratch to adaptations of existing designs for the web.
+
+    \section{PROJECTS}
+        A partial list of projects: \\
+        \begin{itemize}[leftmargin=*]
+        \item Parallel raytracer with basic animation and a physically-based material shader in Rust
+        \item Toy audio synthesizer library in Rust
+        \item Location-based augmented reality Android app and Ruby backend for ship identification
+        \item \textsc{JSON}-based JavaScript frontend application with a Ruby backend for presentation of lists
+        \item \textsc Fully-featured IRC bot with plugin functionality in Ruby
+        \item Microsoft Comic Chat clone in Node.js
+        \item JavaScript game engine with upgrade system using JavaScript and HTML5
+        \item Desktop expense tracker in Java with JavaFX
+        \end{itemize}
+
+        Source code and demo sites for most of these are available on \href{http://github.com/gyng}{GitHub}. An overview of selected projects is available \href{https://gyng.github.io/projects}{https://gyng.github.io/projects}.
+
+\end{resume}
+\end{document}
