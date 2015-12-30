@@ -1,0 +1,245 @@
+[
+  {
+    "image": "rustraytracer.png",
+    "title": {
+      "name": "rust-raytracer",
+      "link": "http://github.com/gyng/rust-raytracer"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/gyng/rust-raytracer"
+      },
+      {
+        "name": "Image gallery",
+        "link": "https://gyng.github.io/rust-raytracer-gallery/"
+      }
+    ],
+    "description_html": "<p>Rust raytracer. Features reflections, refractions, multithreading, soft shadows, supersampling, Cook-Torrance, Phong materials, sphere, plane, triangle primitives, basic spatial partitioning, limited OBJ model support, simple textures, camera keyframe animation.</p>"
+  },
+
+  {
+    "image": "lol.png",
+    "title": {
+      "name": "List of Lists",
+      "link": "http://home.sugoi.pw:8083"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/gyng/listoflists"
+      }
+    ],
+    "description_html": "<p>Javascript + Sinatra web application for the presentation of JSON-defined lists.</p>"
+  },
+  {
+    "image": "hudda.png",
+    "title": {
+      "name": "Hudda",
+      "link": "https://github.com/gyng/Hudda"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/gyng/Hudda"
+      }
+    ],
+    "description_html": "<p>Hudda is a Ruby chatbot that aims to be protocol agnostic, easy to deploy and simple to develop for. Some batteries included.</p>"
+  },
+  {
+    "image": "synthrs.png",
+    "title": {
+      "name": "synthrs",
+      "link": "http://github.com/gyng/synthrs"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "http://github.com/gyng/synthrs"
+      }
+    ],
+    "description_html": "<p>Toy audio synthesizer with basic MIDI sequencing support in Rust.</p><p>Samples (loud): <ul class='square'> <li><a href='https://dl.dropboxusercontent.com/u/38256631/busysignal.ogg'>Busy signal</a></li> <li><a href='https://dl.dropboxusercontent.com/u/38256631/bell.ogg'>Bell</a></li> <li><a href='http://sugoi.pw/samples'>Assorted synthesized MIDI files</a></li> </ul> </p>"
+  },
+  {
+    "image": "comicchat.png",
+    "title": {
+      "name": "comicchat",
+      "link": "http://home.sugoi.pw:8081/files/comicchat/client/#!"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/gyng/comicchat"
+      }
+    ],
+    "description_html": "<p>HTML5 client and Node.js server application based off Microsoft Comic Chat.</p><p>Features rooms, notifications and Google text-to-speech abuse. Comes with an IRC relay.</p>"
+  },
+  {
+    "image": "asshault.png",
+    "title": {
+      "name": "Assault",
+      "link": "http://home.sugoi.pw:8081/files/Asshault/"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/gyng/Asshault"
+      }
+    ],
+    "description_html": "<p>Assault is an early-stage HTML5/Javascript defence-style game inspired by that video on adding juice to games. Everything built ground-up and made by hand just for kicks.</p>"
+  },
+  {
+    "image": "ireul-web.png",
+    "title": {
+      "name": "ireul-web",
+      "link": "https://github.com/gyng/ireul-web"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/gyng/ireul-web"
+      }
+    ],
+    "description_html": "<p>A Rails with React web frontend and song management application for <a href='https://github.com/infinityb/ireul/'>ireul</a>, an internet radio backend.</p>"
+  },
+  {
+    "image": "rib.png",
+    "title": {
+      "name": "rib",
+      "link": "https://github.com/gyng/rib"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/gyng/rib"
+      }
+    ],
+    "description_html": "<p>A simple Futaba-style Ruby On Rails imageboard. Built as a learning project years ago, and has no tests.</p>"
+  },
+  {
+    "image": "bait.png",
+    "title": {
+      "name": "Bait",
+      "link": "http://gyng.github.io/Bait"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/gyng/Bait"
+      }
+    ],
+    "description_html": "<p>Bait is a HTML/JS action game. Bait on!</p>"
+  },
+  {
+    "image": "texte.png",
+    "title": {
+      "name": "Texte",
+      "link": "http://gyng.github.io/Texte"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/gyng/Texte"
+      }
+    ],
+    "description_html": "<p>A minimal HTML rich text editor, with nice things such as ligatures, keyboard shortcuts, and export to HTML included.</p>"
+  },
+  {
+    "image": "hex.png",
+    "title": {
+      "name": "Hex",
+      "link": "http://gyng.github.io/Hex"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/gyng/Hex"
+      }
+    ],
+    "description_html": "<p>School project for a hexagon-based 'game' with a rotation gimmick. Uses three.js (WebGL) and HTML5.</p>"
+  },
+  {
+    "image": "starfield.png",
+    "title": {
+      "name": "STARFIELD",
+      "link": "http://gyng.github.io/STARFIELD"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/gyng/STARFIELD"
+      }
+    ],
+    "description_html": "<p>Another HTML/JS canvas demo, but this time set in space.</p><p>Try the music visualisation (requires Web Audio analyzer node support, try using Chrome!): <ul class='square'> <li><a href='https://gyng.github.io/STARFIELD/index.html#!https://upload.wikimedia.org/wikipedia/commons/e/ea/Bach_C_Major_Prelude_Werckmeister.ogg'>Bach, The Well-Tempered Clavier</a></li><li><a href='https://gyng.github.io/STARFIELD/index.html#!https://upload.wikimedia.org/wikipedia/commons/2/26/After_You%27ve_Gone_-_U.S._Coast_Guard_Band.ogg'>Jazz, After You&rsquo;ve Gone</a></li> <li><a href='https://gyng.github.io/STARFIELD/index.html#!https://r-a-d.io/main.mp3'>J-pop radio stream, r-a-d.io</a></li></ul></p>"
+  },
+  {
+    "image": "tennisity.png",
+    "title": {
+      "name": "Tennisity",
+      "link": "https://github.com/gyng/Tennisity"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/gyng/Tennisity"
+      }
+    ],
+    "description_html": "<p>School project hacked-together in JavaScript. Tennisity is a tennis aid for Android devices that measures a player's tennis serves. The aim is to provide amateur tennis players with instant feedback to help correct and improve on their serves.</p>"
+  },
+  {
+    "image": "graff.png",
+    "title": {
+      "name": "Graff",
+      "link": "https://gyng.github.io/Graff"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/gyng/Graff"
+      }
+    ],
+    "description_html": "<p>A HTML/JS drawing application using canvas. Has limited Wacom plugin support.</p>"
+  },
+  {
+    "image": "expertsort.png",
+    "title": {
+      "name": "EXPERTSORT",
+      "link": "https://github.com/gyng/expertsort"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/gyng/expertsort"
+      }
+    ],
+    "description_html": "<p>A collection of EXPERT PROGRAMMER sorting algorithms.</p><p>Need help with sorting homework? EXPERTSORT is here to help.</p>"
+  },
+  {
+    "image": "colck.png",
+    "title": {
+      "name": "Colck",
+      "link": "http://gyng.github.io/Colck"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/gyng/Colck"
+      }
+    ],
+    "description_html": "<p>A HTML/JS clock which changes colour according to time of day.</p>"
+  },
+  {
+    "image": "expensive.png",
+    "title": {
+      "name": "Expensive",
+      "link": "https://gyng.github.io/expensive-landing"
+    },
+    "subtitles": [
+      {
+        "name": "Bitbucket",
+        "link": "https://bitbucket.org/w11-1j/ezxpns"
+      }
+    ],
+    "description_html": "<p>Expensive (EzXpns) is a simple expense tracker created for a school project. Written in Java and JavaFX.</p>"
+  }
+]
