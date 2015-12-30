@@ -12,12 +12,14 @@ project_template = '
       <h4>{{title}}</h4>
     </a>
     {{subtitles_html}}
-    <p>{{description_html}}</p>
+    {{description_html}}
   </section>'
 
 subtitle_template = '
   <a href="{{link}}">{{title}}</a>
 '
+
+row_closed = false
 
 File.open('./preindex.html', 'r') do |f|
   projects_html = ""
@@ -30,9 +32,11 @@ File.open('./preindex.html', 'r') do |f|
     when 0
       template = "<div class='row'>#{template}"
       template.gsub!("{{alpha_omega_modifier}}", "alpha")
+      row_closed = false
     when 2
       template.gsub!("{{alpha_omega_modifier}}", "omega")
       template = "#{template}</div>"
+      row_closed = true
     end
 
     template.gsub!("{{image}}", "#{image_directory}#{project[:image]}")
@@ -51,6 +55,8 @@ File.open('./preindex.html', 'r') do |f|
 
     projects_html = projects_html + template
   end
+
+  projects_html = projects_html + "</div>" if !row_closed
 
   File.write('index.html', f.read.gsub("{{projects}}", projects_html))
 end
