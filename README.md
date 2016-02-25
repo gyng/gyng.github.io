@@ -7,4 +7,5 @@ A simple static site listing selected projects.
 2. `ruby ./generate.rb`
 
 ## Generate CV
-Use an editor.
+* `sh ./generate_cv.sh`
+* Or, use an editor.
