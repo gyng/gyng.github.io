@@ -1,7 +1,7 @@
 \documentclass[line, margin]{res}
 % \usepackage[a4paper, margin=1.5cm]{geometry}
 \usepackage{hyperref}
-\usepackage{kpfonts,baskervald}
+
 \usepackage{enumitem}
 \usepackage{color}
 \usepackage{url}
@@ -24,59 +24,67 @@
 \name{\huge{Ng Guoyou}}
 \address{
     \href{mailto:ng.guoyou+cv\at gmail.com}{ng.guoyou\at gmail.com}
-    \href{http://github.com/gyng}{http://github.com/gyng}
+    \href{https://github.com/gyng}{https://github.com/gyng}
 }
 
 \begin{resume}
+    \section{SKILLS}
+        Work experience with JavaScript, Rust, Ruby, Python, HTML, CSS, React, Redux
+
+        Some experience with Java, Docker, Photoshop
+
+        Native English and Mandarin Chinese speaker
+
+    \section{EXPERIENCE}
+        \textbf{GOVERNMENT TECHNOLOGY AGENCY} \\
+        \textbf{Software Engineer}, Singapore, 2016--Current \\
+        Working as a full-stack software developer on public projects of varying sizes in an agile environment. Projects worked on include:
+
+        \textit{\href{https://www.businessgrants.gov.sg/}{https://www.businessgrants.gov.sg}, a grant application and tracking portal} \\
+        \textit{Ruby on Rails, React, Redux} \\
+        Introduced and implemented \textsc{ci}-enforced linting for Ruby and JavaScript on existing codebase.
+        Upgraded Ruby on Rails from 4 to 5.
+        Implemented features for and fixed bugs on forms with complex validation logic.
+
+        \textit{Data ingestion validator, API endpoint, and data visualisation application} \\
+        \textit{Rust, Python, Flask, React, Redux, webpack, Docker} \\
+        Optimised data ingestion time by 5$\times$ over pre-existing implementation.
+        Improved \textsc{api} server codebase by writing tests, adding linting, and cleaning up \textsc{api}.
+        Developed front-end visualisation from scratch with \textsc{ie11} support.
+
+        \textbf{ROOMORAMA} \\
+        \textbf{Intern, Software Developer}, Singapore, May--August 2013 \\
+        Built a business statistics dashboard in Ruby and CoffeeScript to aid decision-making. Worked on the main Ruby On Rails application implementing features and bug fixes.
+
+        % \textit{Freelance} \\
+        % \textit{Web Designer}, 2012--2014 \\
+        % Worked with several clients on short-term jobs to design and implement web designs as a freelance contractor. Used HTML, CSS and JavaScript for frontend projects. Interacted with clients to fulfill their business requirements. Amount of design ranged from created-from-scratch to adaptations of existing designs for the web.
+
+        % \textbf{SINGAPORE ARMED FORCES} \\
+        % \textbf{Armourer}, Singapore, 2008--2010 \\
+        % Served National Service as an armourer. Was responsible for managing the logistics and maintenance for an armoury of small arms. Partially automated daily report generation in Excel.
+
     \section{EDUCATION}
         Bachelor of Computing (Communications \& Media) Hons. \\
         National University of Singapore \\
         2011--2015
 
-    \section{SKILLS}
-        Comfortable with Ruby, JavaScript, Java, HTML, CSS
-        % \begin{itemize}[leftmargin=*]
-        % \item Ruby
-        % \item JavaScript
-        % \item Java
-        % \item \textsc{HTML, CSS}
-        % \end{itemize}
+    \section{PERSONAL}
+        A partial list of personal projects:
 
-        Some experience with Rust, C, Python, Ruby On Rails, Android, Git, Photoshop, Illustrator.
-
-        Native English and Mandarin Chinese speaker.
-
-    \section{EXPERIENCE}
-        \textbf{Government Digital Service, Infocomm Authority of Singapore} \\
-        \textbf{Associate Consultant}, 2016--Current \\
-        Working as a full-stack software developer on public projects of varying size in an agile environment. Technologies used include, but not limited to: Ruby, Ruby on Rails, JavaScript, and React. The current project is the development of a Ruby on Rails with React business grant portal.
-
-        \textbf{Roomorama} \\
-        \textbf{Software Developer Intern}, May--August 2013 \\
-        Built a business statistics dashboard in Ruby and CoffeeScript to aid decision-making. Worked on the main Ruby On Rails application implementing features and bug fixes, including a locale-aware ElasticSearch implementation for room listings and third-party inventory integration.
-
-        \textbf{Freelance} \\
-        \textbf{Web Designer}, 2012--2014 \\
-        Worked with several clients on short-term jobs to design and implement web designs as a freelance contractor. Used HTML, CSS and JavaScript for frontend projects. Interacted with clients to fulfill their business requirements. Amount of design ranged from created-from-scratch to adaptations of existing designs for the web.
-
-        % \textbf{Singapore Armed Forces} \\
-        % \textbf{Armourer}, 2008--2010 \\
-        % Served National Service as an armourer. Was responsible for managing the logistics and maintenance for an armoury of small arms.
-
-    \section{PROJECTS}
-        A partial list of personal projects: \\
         \begin{itemize}[leftmargin=*]
-        \item Parallel raytracer with basic animation and a physically-based material shader in Rust
-        \item Toy audio synthesizer library in Rust
-        \item Location-based augmented reality Android app and Ruby backend for ship identification
-        \item Microsoft Comic Chat clone in Node.js
-        \item \textsc{JSON}-based JavaScript frontend application with a Ruby backend for presentation of lists
-        \item \textsc Fully-featured IRC bot with plugin functionality in Ruby
-        \item JavaScript game engine with upgrade system using JavaScript and HTML5
-        \item Desktop expense tracker in Java with JavaFX
+        \item \href{https://github.com/gyng/rcanary}{Simple \textsc{http} monitoring tool with email alerts and dashboard in Rust}
+        \item \href{https://github.com/gyng/synthrs}{Toy audio synthesizer library in Rust}
+        \item \href{https://github.com/gyng/rust-raytracer}{Parallel raytracer with basic animation in Rust}
+        \item \href{https://github.com/gyng/rcue}{Cuesheet reader library in Rust}
+        \item \href{https://github.com/gyng/comicchat/}{Microsoft Comic Chat clone in Node.js}
+        \item \href{https://github.com/gyng/listoflists}{File-based \textsc{json} JavaScript frontend for presentation of lists}
+        \item \href{https://github.com/gyng/betabot}{\textsc Fully-featured \textsc{irc} and Slack bot with plugin functionality in Ruby}
+        \item \href{https://github.com/gyng/Asshault}{JavaScript game engine with upgrade system using JavaScript and \textsc{html5}}
+        \item \href{https://github.com/gyng/book/}{https://github.com/gyng/book/ -- sharing sessions and presentations from work}
         \end{itemize}
 
-        Source code and demo sites for most of these are available on \href{http://github.com/gyng}{GitHub}. An overview of selected projects is available \href{https://gyng.github.io/projects}{https://gyng.github.io/projects}.
+        Source code and demo sites for these are available on \href{https://github.com/gyng}{GitHub}. An overview of selected projects is available \href{https://gyng.github.io/projects}{https://gyng.github.io/projects}.
 
 \end{resume}
 \end{document}

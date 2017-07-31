@@ -1,5 +1,36 @@
 [
   {
+    "image": "rcanary.png",
+    "title": {
+      "name": "rcanary",
+      "link": "http://github.com/gyng/rcanary"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/gyng/rcanary"
+      }
+    ],
+    "description_html": "<p>Minimal webpage status monitoring program with email alerts and a dashboard.</p>"
+  },
+
+  {
+    "image": "rcue.png",
+    "title": {
+      "name": "rcue",
+      "link": "http://github.com/gyng/rcue"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/gyng/rcue"
+      }
+    ],
+    "description_html": "<p>Simple CUE sheet reader for Rust.</p>"
+  },
+
+
+  {
     "image": "rustraytracer.png",
     "title": {
       "name": "rust-raytracer",
