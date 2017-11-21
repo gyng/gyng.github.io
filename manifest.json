@@ -259,33 +259,5 @@
       }
     ],
     "description_html": "<p>A collection of EXPERT PROGRAMMER sorting algorithms.</p><p>Need help with sorting homework? EXPERTSORT is here to help.</p>"
-  },
-  {
-    "image": "colck.png",
-    "title": {
-      "name": "Colck",
-      "link": "http://gyng.github.io/Colck"
-    },
-    "subtitles": [
-      {
-        "name": "GitHub",
-        "link": "https://github.com/gyng/Colck"
-      }
-    ],
-    "description_html": "<p>A HTML/JS clock which changes colour according to time of day.</p>"
-  },
-  {
-    "image": "expensive.png",
-    "title": {
-      "name": "Expensive",
-      "link": "https://gyng.github.io/expensive-landing"
-    },
-    "subtitles": [
-      {
-        "name": "Bitbucket",
-        "link": "https://bitbucket.org/w11-1j/ezxpns"
-      }
-    ],
-    "description_html": "<p>Expensive (EzXpns) is a simple expense tracker created for a school project. Written in Java and JavaFX.</p>"
   }
 ]
