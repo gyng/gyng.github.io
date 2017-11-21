@@ -29,7 +29,6 @@
     "description_html": "<p>Simple CUE sheet reader for Rust.</p>"
   },
 
-
   {
     "image": "rustraytracer.png",
     "title": {
@@ -50,6 +49,21 @@
   },
 
   {
+    "image": "savein.png",
+    "title": {
+      "name": "Save In…",
+      "link": "https://github.com/gyng/save-in/"
+    },
+    "subtitles": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/gyng/save-in/"
+      }
+    ],
+    "description_html": "<p>WebExtension to save media, links, or selected text into user-defined directiories. <ul class='square'><li><a href='https://addons.mozilla.org/en-US/firefox/addon/save-in'>Firefox Addons</a></li><li><a href='https://chrome.google.com/webstore/detail/save-in%E2%80%A6/jpblofcpgfjikaapfedldfeilmpgkedf'>Chrome Web Store</a></li></ul></p>"
+  },
+
+  {
     "image": "lol.png",
     "title": {
       "name": "List of Lists",
@@ -63,6 +77,7 @@
     ],
     "description_html": "<p>Javascript + Sinatra web application for the presentation of JSON-defined lists.</p>"
   },
+
   {
     "image": "hudda.png",
     "title": {
