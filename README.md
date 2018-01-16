@@ -2,10 +2,12 @@
 
 A simple static site listing selected projects.
 
-## Generate page
-1. Modify `manifest.json`
-2. `ruby ./generate.rb`
+## Build
 
-## Generate CV
-* `sh ./generate_cv.sh`
-* Or, use an editor.
+```
+make page
+watch -n 0.5 make page
+
+make cv
+watch -n 0.5 make cv
+```
