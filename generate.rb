@@ -1,9 +1,9 @@
-require 'cgi'
 require 'json'
 
-image_directory = "images/"
+IMAGE_DIR = 'images/'
 
-projects = JSON.parse(File.read('manifest.json'), symbolize_names: true)
+manifest = JSON.parse(File.read('manifest.json'), symbolize_names: true)
+projects = manifest[:projects]
 
 project_template = '
   <div class="project">
@@ -34,24 +34,25 @@ File.open('./preindex.html', 'r') do |f|
   projects.each do |project|
     template = project_template.dup
 
-    template.gsub!("{{image}}", "#{image_directory}#{project[:image]}")
-    template.gsub!("{{title}}", project[:title][:name])
-    template.gsub!("{{title_link}}", project[:title][:link] || "")
+    template.gsub!('{{image}}', "#{IMAGE_DIR}#{project[:image]}")
+    template.gsub!('{{title}}', project[:title][:name])
+    template.gsub!('{{title_link}}', project[:title][:link] || '')
 
-    template.gsub!("{{subtitles_html}}",
+    template.gsub!(
+      '{{subtitles_html}}',
       project[:subtitles].map { |s|
         subtitle_template.dup
-          .gsub!("{{title}}", s[:name])
-          .gsub!("{{link}}", s[:link])
-      }.join("&nbsp;&middot;&nbsp;")
+          .gsub!('{{title}}', s[:name])
+          .gsub!('{{link}}', s[:link])
+      }.join('&nbsp;&middot;&nbsp;')
     )
 
-    template.gsub!("{{tag}}", project[:tag] || '')
+    template.gsub!('{{tag}}', project[:tag] || '')
 
-    template.gsub!("{{description_html}}", project[:description_html])
+    template.gsub!('{{description_html}}', project[:description_html])
 
-    projects_html = projects_html + template
+    projects_html += template
   end
 
-  File.write('index.html', f.read.gsub("{{projects}}", projects_html))
+  File.write('index.html', f.read.gsub('{{projects}}', projects_html))
 end
