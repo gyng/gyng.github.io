@@ -1,1 +1,1 @@
-pdflatex cv/NgGuoyouCV.tex -job-name=cv/NgGuoyouCV
+cd cv && pdflatex NgGuoyouCV.tex -job-name=NgGuoyouCV
