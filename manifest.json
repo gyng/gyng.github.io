@@ -18,22 +18,6 @@
     },
 
     {
-      "image": "savein.png",
-      "title": {
-        "name": "save-in",
-        "link": "https://github.com/gyng/save-in"
-      },
-      "subtitles": [
-        {
-          "name": "GitHub",
-          "link": "https://github.com/gyng/save-in"
-        }
-      ],
-      "tag": "JS, ~2017",
-      "description_html": "<p>WebExtension for auto managing downloads.</p>"
-    },
-
-    {
       "image": "rcue.png",
       "title": {
         "name": "rcue",
@@ -203,7 +187,7 @@
       ],
       "tag": "JS, ~2017",
       "description_html":
-        "<p>Various bookmarklets made for fun and no profit.<ul><li><a href='https://gyng.github.io/maketerm/'>maketerm</li><li><a href='https://gyng.github.io/makeglitch/'>makeglitch</a></li><li><a href='https://gyng.github.io/rtl-reader-view/'>rtl-reader-view</a></li></ul></p>"
+        "<p>Various bookmarklets made for fun and no profit.<ul><li><a href='https://gyng.github.io/maketerm/'>maketerm</li><li><a href='https://gyng.github.io/makeglitch/'>makeglitch</a></li><li><a href='https://gyng.github.io/makeglitch/'>rtl-reader-view</a></li></ul></p>"
     },
 
     {
