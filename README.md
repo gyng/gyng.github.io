@@ -1,4 +1,4 @@
-# @gyng
+## @gyng
 
 Hello! I am a software engineer based in Singapore, currently at SPH Media in a lead position.
 
