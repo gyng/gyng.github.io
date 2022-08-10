@@ -32,7 +32,7 @@ I also have some hobby projects accumulated over a decade. They [live mostly on 
 |[rust-raytracer](https://github.com/gyng/rust-raytracer)|A primitive raytracer in Rust|
 |[betabot](https://github.com/gyng/betabot)|Ruby bot with plugins. Has full IRC, basic Slack and Discord support.|
 
-Tangentially, I am also interested in typography, UX, design, graphics, photography, indoor gardening, travelling, music, and more.
+Tangentially, I am also interested in typography, UX, design, graphics, photography, indoor gardening, travelling, music, film, gaming, and more.
 
 ## Book
 
