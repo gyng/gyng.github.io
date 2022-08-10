@@ -16,6 +16,8 @@ I work across the stack and enjoy using TypeScript, Rust, Python, Terraform, and
 
 _&hellip;and ~~a couple~~ other things_&hellip;
 
+## Hobby
+
 I also have some hobby projects accumulated over the years. They [live mostly on GitHub](https://github.com/gyng?tab=repositories). Some highlights:
 
 |||
