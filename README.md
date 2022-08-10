@@ -1,8 +1,8 @@
 ## [@gyng](https://github.com/gyng)
 
-Hello! I am a software engineer based in Singapore, currently at SPH Media in a lead position.
+Hello! I am a software engineer based in Singapore.
 
-Prior to this, I was at GovTech, Basis AI, and Credit Suisse.
+Currently, I am with SPH Media in a lead position. Prior to this, I was at GovTech, Basis AI, and Credit Suisse.
 
 I work across the stack and enjoy using TypeScript, Rust, Python, Terraform, and a few other tools.
 
@@ -32,7 +32,7 @@ I also have some hobby projects accumulated over a decade. They [live mostly on 
 |[rust-raytracer](https://github.com/gyng/rust-raytracer)|A primitive raytracer in Rust|
 |[betabot](https://github.com/gyng/betabot)|Ruby bot with plugins. Has full IRC, basic Slack and Discord support.|
 
-Tangentially, I am also interested in typography, UX, design, graphics, photography, indoor gardening, travelling, music, film, gaming, and more.
+Tangentially, I am also interested, in varying amounts, typography, UX, design, graphics, photography, indoor gardening, travelling, music, film, gaming, and more.
 
 ## Book
 
@@ -40,5 +40,6 @@ Some of my blogposts and presentations are at [@gyng/book](https://gyng.github.i
 
 ## Metadata
 
+- [GitHub](https://github.com/gyng)
 - [CV](./cv/cv.pdf)
 - [LinkedIn](https://www.linkedin.com/in/guoyou/)
