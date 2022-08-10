@@ -40,7 +40,7 @@ Some of my blogposts and presentations are at [@gyng/book](https://gyng.github.i
 
 ## Metadata
 
-- ng.guoyou🥔gmail.com
+- <span>ng.guoyou</span>⦿<span>gmail.com</span>
 - [GitHub](https://github.com/gyng)
 - [CV](./cv/cv.pdf)
 - [LinkedIn](https://www.linkedin.com/in/guoyou/)
