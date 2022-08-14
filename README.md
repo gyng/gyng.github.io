@@ -36,7 +36,7 @@ Tangentially, I am also interested, in varying amounts, typography, UX, design, 
 
 ## Book
 
-Some of my blogposts and presentations are at [@gyng/book](https://gyng.github.io/book/).
+Some of my blogposts and presentations are at [@gyng/book](https://gyng.github.io/book/). You can also view some of my photos at [https://album-bice.vercel.app/](https://album-bice.vercel.app/).
 
 ## Metadata
 
