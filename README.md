@@ -30,14 +30,14 @@ I also have some hobby projects accumulated over a decade. They [live mostly on 
 |[save-in](https://github.com/gyng/save-in/)|WebExtension for saving media, links, or selections into user-defined directories|
 |[ditherer](https://github.com/gyng/ditherer)|Apply dithering and retro filters to images and videos in the browser|
 |[rust-raytracer](https://github.com/gyng/rust-raytracer)|A primitive raytracer in Rust|
-|[album](https://github.com/gyng/album)|Personal photography [site](https://album-bice.vercel.app) in Next.js|
+|[album](https://github.com/gyng/album)|Personal photography [site](https://album-gyng.vercel.app) in Next.js|
 |[betabot](https://github.com/gyng/betabot)|Ruby bot with plugins. Has full IRC, basic Slack and Discord support.|
 
 Tangentially, I am also interested, in varying amounts, typography, UX, design, graphics, photography, indoor gardening, travelling, music, film, gaming, and more.
 
 ## Book
 
-Some of my blogposts and presentations are at [@gyng/book](https://gyng.github.io/book/). You can also view some of my photos at [https://album-bice.vercel.app/](https://album-bice.vercel.app/).
+Some of my blogposts and presentations are at [@gyng/book](https://gyng.github.io/book/). You can also view some of my photos at [https://album-gyng.vercel.app/](https://album-bice.vercel.app/).
 
 ## Metadata
 
