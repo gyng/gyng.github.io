@@ -30,6 +30,7 @@ I also have some hobby projects accumulated over a decade. They [live mostly on 
 |[save-in](https://github.com/gyng/save-in/)|WebExtension for saving media, links, or selections into user-defined directories|
 |[ditherer](https://github.com/gyng/ditherer)|Apply dithering and retro filters to images and videos in the browser|
 |[rust-raytracer](https://github.com/gyng/rust-raytracer)|A primitive raytracer in Rust|
+|[album](https://github.com/gyng/album)|Personal photography [site](https://album-bice.vercel.app) in Next.js|
 |[betabot](https://github.com/gyng/betabot)|Ruby bot with plugins. Has full IRC, basic Slack and Discord support.|
 
 Tangentially, I am also interested, in varying amounts, typography, UX, design, graphics, photography, indoor gardening, travelling, music, film, gaming, and more.
