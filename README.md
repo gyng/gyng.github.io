@@ -8,7 +8,7 @@ I work across the stack and enjoy using TypeScript, Rust, Python, Terraform, and
 
 Currently, I am with SPH Media as head of the Digital Platform team. Prior to this, I was at GovTech, Basis AI, and Credit Suisse.
 
-- Heading digital platform teams at SPH Media (think in-house Vercel, content APIs)
+- Heading digital platform teams at SPH Media (think in-house PaaS teams like Vercel and for content)
 - Bedrock, ML-ops platform
 - Order placement frontend for securities
 - MyCareersFuture, government job portal
