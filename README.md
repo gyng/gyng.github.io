@@ -43,5 +43,5 @@ Some of my blogposts and presentations are at [@gyng/book](https://gyng.github.i
 
 - <span>ng.guoyou</span>⦿<span>gmail.com</span>
 - [GitHub](https://github.com/gyng)
-- [CV](./cv/cv.pdf)
+- Resume [(html)](./cv/cv) [(pdf)](./cv/cv.pdf)
 - [LinkedIn](https://www.linkedin.com/in/guoyou/)
