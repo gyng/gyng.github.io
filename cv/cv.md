@@ -12,17 +12,20 @@ SPH Media is the largest media organisation in Singapore.
 **Head, Digital Platform**, Singapore  
 April 2024–Present
 
-- Leading around 20 developers focused on developer tooling and platform services. These teams serve >100 SPH software developers across multiple newsrooms.
-- Also running the development team for content archival and B2B content distribution.
-- Developed mid- and long-term strategies and roadmaps for teams.
-- Developed and implemented engineering policies and processes for teams around development and operations.
+- Leading around 20 developers focused on developer tooling, platform services, content archival, and B2B content distribution. Together, these teams serve >50 software developers and have >$1M SGD yearly revenue.
+- Developed mid- and long-term strategies, roadmaps, and mandates for teams. Created engineering strategies to reduce cost, increase capabilities, and scale up the number of customer engagements with small development teams.
+- Developed and implemented engineering policies and processes for teams around technical design, development, and operations.
+- Set and maintained engineering standards and values around scalable + reliable architecture, automated testing, baseline code quality, and operations across teams.
+- Guide (and sometimes create) technical and architecture designs as part of the technical design process.
+- Reorganised teams as part of organisation transformation into more efficient structures.
+- Work with neighbouring teams and users to prioritise and unblock development.
 - Implemented hiring processes and pipelines.
-- Heavily involved in the architecture and technical design process.
 
-**Software Engineer**, Singapore  
+**Lead Software Engineer**, Singapore  
 2022–April 2024  
 TypeScript, Node, Python, AWS, React, Vite, Docker, OpenSearch
 
+- Led around 10 developers across two teams to build platform services.
 - Architected, developed, and ran an in-house web deployment platform for SSR/ISR Vite/React applications designed for reliability on AWS (think Vercel). The platform features a boilerplate done using Vite, edge logic, edge middleware, incremental-static regeneration, a Backend-for-Frontend framework, and deployment workflows. This web platform serves millions of page views per day across >10 publications. Assisted teams with migration away from Drupal and WordPress setups.
 - Architected, developed, and ran the content API and delivery service. This includes content indexing as a service using OpenSearch (think Algolia), ingestion pipelines, content delivery, and on-the-fly image optimisation services using sharp.
 - Architected and developed the in-house browser tracking script, associated backend service, and session ID tracking scheme.
