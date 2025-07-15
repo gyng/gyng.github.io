@@ -50,6 +50,8 @@ TypeScript, Python, Rust, Webpack, React, Redux, Docker, Kubernetes, UX
 - Built company website in Next.js.
 - Conducted basic UX research and user testing.
 
+<div style="page-break-after: always;"></div>
+
 ### Credit Suisse
 
 **Software Engineer**, Singapore  
