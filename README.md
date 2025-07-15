@@ -4,7 +4,7 @@ Hello! I am a software engineer based in Singapore.
 
 I work across the stack and enjoy using TypeScript, Rust, Python, Terraform, and a few other tools.
 
-Resume ([html](./cv/cv)) ([pdf](./cv/cv.pdf))
+Resume ([html](https://gyng.github.io/cv/cv)) ([pdf](https://gyng.github.io/cv/cv.pdf))
 
 ## Work
 
@@ -45,5 +45,5 @@ Some of my blogposts and presentations are at [@gyng/book](https://gyng.github.i
 
 - <span>ng.guoyou</span>⦿<span>gmail.com</span>
 - [GitHub](https://github.com/gyng)
-- Resume ([html](./cv/cv)) ([pdf](./cv/cv.pdf))
+- Resume ([html](https://gyng.github.io/cv/cv)) ([pdf](https://gyng.github.io/cv/cv.pdf))
 - [LinkedIn](https://www.linkedin.com/in/guoyou/)
