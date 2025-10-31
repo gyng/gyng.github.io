@@ -2,25 +2,23 @@
 
 ng.guoyou[at]gmail.com  
 [github.com/gyng](https://github.com/gyng)  
-*Updated July 2025*
+*Updated October 2025*
 
 ## Experience
 
 ### SPH Media
 
-SPH Media is the largest media organisation in Singapore.
+SPH Media is a leading media organisation in Singapore with around 2500 employees.
 
 **Head, Digital Platform**, Singapore  
 Apr 2024–Present
 
-- Leading around 15 developers in multiple teams on developer tooling, application platforms, content lake, content licensing, and content archival. These teams support >50 software developers and generate >$1M SGD in yearly revenue.
-- Developed mid- and long-term strategies, roadmaps, and mandates for teams. Created engineering strategies to optimise cost, and increase baseline engineering capabilities.
-- Developed and implemented engineering policies and processes for teams around technical design, development, and operations.
-- Set and maintained engineering standards around scalable and reliable architecture, automated testing, and consistent code quality.
+- Managing around 15 reports in multiple teams on application platforms, content platforms (indexing, delivery, creation, commercial products), and AI labs. With the teams and other cross-org initiatives I support all software development in SPH across multiple divisions.
+- Developed mid- and long-term strategies, roadmaps, pitches, and mandates for teams.
+- Developed and implemented engineering policies, standards, and processes for teams around technical design, development, and operations.
 - Guided technical and architecture designs as part of the technical design process.
-- Reorganised teams into more efficient structures as part of organisation transformation.
-- Implemented hiring processes and career advancement frameworks.
-- Cost-optimised over >$200K SGD yearly by eliminating unnecessary SaaS contracts.
+- Worked on hiring processes and career advancement frameworks.
+- Cost-optimised over >$500K SGD yearly by eliminating unnecessary SaaS contracts, implementing cloud cost optimisation processes, and streamlining teams.
 - Prepared for and executed on a smooth Singapore General Elections 2025 which saw a significant spike in site traffic.
 
 **Lead Software Engineer**, Singapore  
