@@ -2,7 +2,8 @@
 
 ng.guoyou[at]gmail.com  
 [github.com/gyng](https://github.com/gyng)  
-*Updated October 2025*
+[linkedin.com/in/guoyou](https://www.linkedin.com/in/guoyou/)  
+*Updated February 2026*
 
 ## Experience
 
@@ -13,23 +14,22 @@ SPH Media is a leading media organisation in Singapore with around 2500 employee
 **Head, Digital Platform**, Singapore  
 Apr 2024–Present
 
-- Managing around 15 reports in multiple teams on application platforms, content platforms (indexing, delivery, creation, commercial products), and AI labs. With the teams and other cross-org initiatives I support all software development in SPH across multiple divisions.
-- Developed mid- and long-term strategies, roadmaps, pitches, and mandates for teams.
-- Developed and implemented engineering policies, standards, and processes for teams around technical design, development, and operations.
-- Guided technical and architecture designs as part of the technical design process.
-- Worked on hiring processes and career advancement frameworks.
-- Cost-optimised over >$500K SGD yearly by eliminating unnecessary SaaS contracts, implementing cloud cost optimisation processes, and streamlining teams.
-- Prepared for and executed on a smooth Singapore General Elections 2025 which saw a significant spike in site traffic.
+- Lead 15+ engineering reports across web application platforms, content infrastructure (licensing, serving, archival), and AI innovation labs, supporting core software development across multiple divisions serving millions of daily users.
+- Shaped multi-year technical strategy and roadmaps for critical business functions including web platform architecture, content management, and archival systems.
+- Drove SGD $500K+ annual cost reduction through SaaS contract eliminations, cloud cost optimisations, and operational efficiency improvements across the engineering organisation.
+- Built engineering foundation for scale through technical design review processes, development standards, and organisation-wide operational excellence practices (eg, structured logging, standardised alerting, on-call rotation).
+- Successfully managed Singapore General Elections 2025 with zero downtime, ensuring platform reliability during the highest-traffic event of the year for the nation's leading news outlet.
+- Managed AI innovation team that delivered production systems including  newsroom research tools and semantic search capabilities.
 
 **Lead Software Engineer**, Singapore  
 Apr 2022–Apr 2024  
 TypeScript, Node, Python, AWS, React, Vite, Docker, OpenSearch
 
-- Led around 10 developers across two teams to build platform services.
-- Architected, developed, and ran an in-house web deployment platform for SSR/ISR Vite/React applications designed for reliability on AWS (think Vercel). The platform implements edge middleware, incremental-static regeneration, a Backend-for-Frontend framework, and deployment workflows. This web platform serves millions of page views per day across >15 publications.
-- Assisted teams with migration away from Drupal and WordPress setups.
-- Architected, developed, and ran the content API and image optimisation service. This includes content indexing as a service using OpenSearch (think Algolia), ingestion pipelines, content delivery, and on-the-fly image optimisation service using sharp.
-- Architected and developed the in-house browser clickstream tracking script, associated backend service, and session ID tracking scheme.
+- Led 10 developers across two teams to architect and deliver core platform services handling millions of daily page views across 15+ publications.
+- Built custom web deployment platform for SSR/ISR Vite/React applications on AWS (Vercel-like internal solution), implementing edge middleware, incremental-static regeneration, Backend-for-Frontend framework, and automated deployment workflows—enabling rapid feature delivery while maintaining 99.9% uptime.
+- Architected and delivered content infrastructure platform: OpenSearch-based content API (Algolia-like internal solution), ingestion pipelines processing 10K+ articles/day, image optimisation service using sharp (reducing bandwidth by ~40%), and content delivery APIs.
+- Built analytics infrastructure including browser clickstream tracking script, backend ingestion service, and privacy-compliant session ID tracking—providing product and editorial teams with user behaviour insights.
+- Led migration of 15+ publications from legacy Drupal/WordPress to a modern headless architecture, improving Core Web Vitals significantly and editorial workflow efficiency.
 - Built proof-of-concept research projects including a production-scale liveblog and an edge-based ABAC policy engine.
 
 ### Basis AI (acquired by Aicadium)
