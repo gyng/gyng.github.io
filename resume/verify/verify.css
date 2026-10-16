@@ -1,0 +1,89 @@
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+#cv-verifier {
+  max-width: 48rem;
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  border: 1px solid #b7c0c8;
+  border-radius: 0.5rem;
+  background: #f7f9fb;
+  color: #17212b;
+}
+
+#cv-verifier [hidden] {
+  display: none;
+}
+#cv-verifier h2 {
+  margin-top: 0;
+}
+#cv-verifier a {
+  color: #1c4b73;
+}
+#cv-verifier code {
+  overflow-wrap: anywhere;
+}
+#cv-verifier pre {
+  padding: 0.8rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  background: #fff;
+  border: 1px solid #d7dfe5;
+}
+#cv-verifier dt {
+  margin-top: 0.7rem;
+  font-weight: 600;
+}
+#cv-verifier dd {
+  margin: 0.2rem 0 0;
+  overflow-wrap: anywhere;
+}
+#cv-verifier button {
+  padding: 0.55rem 0.8rem;
+  border: 1px solid #1c4b73;
+  border-radius: 0.25rem;
+  background: #fff;
+  color: #1c4b73;
+  font: inherit;
+  cursor: pointer;
+}
+#cv-verifier button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+#cv-verifier :focus-visible {
+  outline: 3px solid #467fae;
+  outline-offset: 3px;
+}
+#pdf-dropzone {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.1rem;
+  margin: 1rem 0;
+  border: 2px dashed #8499ab;
+  border-radius: 0.3rem;
+  background: #fff;
+  cursor: pointer;
+}
+#pdf-dropzone[data-dragging] {
+  border-color: #1c4b73;
+  background: #eaf2f9;
+}
+#pdf-file {
+  max-width: 100%;
+}
+#verification-status {
+  font-weight: 600;
+}
+#verification-status[data-state='match'] {
+  color: #25613f;
+}
+#verification-status[data-state='different'] {
+  color: #805300;
+}
+#verification-status[data-state='error'] {
+  color: #a32626;
+}

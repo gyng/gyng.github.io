@@ -1,49 +1,35 @@
-## [@gyng](https://github.com/gyng)
+# Ng Guoyou
 
-Hello! I am a software engineer based in Singapore.
+Engineering leader based in Singapore, building AI, web application, and content platforms. I combine team leadership with hands-on engineering.
 
-I work across the stack and enjoy using TypeScript, Rust, Python, Terraform, and a few other tools.
-
-Resume ([html](https://gyng.github.io/resume/resume)) ([pdf](https://gyng.github.io/resume/resume.pdf))
+[CV](https://gyng.github.io/resume/) · [Download PDF](https://gyng.github.io/resume/resume.pdf) · [Verify PDF](https://gyng.github.io/resume/verify/)
 
 ## Work
 
-Currently, I am with SPH Media as head of the Digital Platform team. Prior to this, I was at GovTech, Basis AI, and Credit Suisse.
+I'm Head, Digital Platform at SPH Media, leading 15 engineers and two managers across four teams. My work covers:
 
-- Heading digital platform teams at SPH Media (think in-house PaaS teams like Vercel and for content)
-- Bedrock, ML-ops platform
-- Order placement frontend for securities
-- MyCareersFuture, government job portal
-- Data processing and visualisation project
-- Business Grants Portal
+- **AI platforms and developer tooling:** shared model access, agent workflows, enterprise knowledge search, and automated access governance.
+- **Web and news content platforms:** WebCore, supporting 15+ publications and millions of daily page views, and the central platform for news ingestion, search, and distribution.
+- **B2B content services:** platforms and APIs supporting content licensing and syndication, alongside technical guidance on media asset management and AI-assisted tagging.
+- **Engineering leadership:** platform strategy, operational reliability, engineering standards, and cloud cost management.
 
-_&hellip;and ~~a couple~~ other things_&hellip;
+Previously, I worked at Basis AI, Credit Suisse, and GovTech, spanning enterprise AI, financial services, and public digital services.
 
-## Hobby
+## Selected projects
 
-I also have some hobby projects accumulated over a decade. They [live mostly on GitHub](https://github.com/gyng?tab=repositories). Some highlights:
+- [Save In](https://github.com/gyng/save-in) — A browser extension for organising downloads into user-defined directories, with 40,000+ users.
+- [album](https://github.com/gyng/album) — A zero-config, file-based photography gallery generator.
 
-|||
-|-|-|
-|[remote-zip](https://github.com/gyng/remote-zip)|Fetch file listings and individual files from a remote ZIP file|
-|[ts-library-quickstart](https://github.com/gyng/ts-library-quickstart/)|Esbuild quickstart for libraries with linting, testing, CI, and publishing CD|
-|[synthrs](https://github.com/gyng/synthrs)|Toy audio synthesizer library in Rust with basic MIDI support|
-|[rcue](https://github.com/gyng/rcue)|Basic, zero-dependency, pure Rust CUE sheet reader|
-|[save-in](https://github.com/gyng/save-in/)|WebExtension for saving media, links, or selections into user-defined directories|
-|[ditherer](https://github.com/gyng/ditherer)|Apply dithering and retro filters to images and videos in the browser|
-|[rust-raytracer](https://github.com/gyng/rust-raytracer)|A primitive raytracer in Rust|
-|[album](https://github.com/gyng/album)|Personal photography [site](https://album-gyng.vercel.app) in Next.js|
-|[betabot](https://github.com/gyng/betabot)|Ruby bot with plugins. Has full IRC, basic Slack and Discord support.|
+[More projects on GitHub](https://github.com/gyng?tab=repositories).
 
-Tangentially, I am also interested, in varying amounts, typography, UX, design, graphics, photography, indoor gardening, travelling, music, film, gaming, and more.
+## Elsewhere
 
-## Book
+Some of my writing and presentations are in [my book](https://gyng.github.io/book/). Outside work, my interests include photography, typography, design, graphics, indoor gardening, travel, music, and film.
 
-Some of my blogposts and presentations are at [@gyng/book](https://gyng.github.io/book/). You can also view some of my photos at [https://album-gyng.vercel.app/](https://album-bice.vercel.app/).
+ng.guoyou[at]gmail.com · [GitHub](https://github.com/gyng) · [LinkedIn](https://www.linkedin.com/in/guoyou/)
 
-## Metadata
+## About this CV
 
-- <span>ng.guoyou</span>⦿<span>gmail.com</span>
-- [GitHub](https://github.com/gyng)
-- Resume ([html](https://gyng.github.io/resume/resume)) ([pdf](https://gyng.github.io/resume/resume.pdf))
-- [LinkedIn](https://www.linkedin.com/in/guoyou/)
+The PDF is generated from Markdown and includes a compact source fingerprint. Published builds have a SHA-256 checksum and signed GitHub build provenance. The [verification tool](https://gyng.github.io/resume/verify/) checks a PDF locally in your browser and provides the signature-verification command.
+
+[Build and verification instructions](CONTRIBUTING.md).

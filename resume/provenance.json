@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "pdf": {
+    "file": "resume.pdf",
+    "sha256": "75f5d340abf9ede529aff0a59e9d4f72e37a38458f47565c10336c38e53c3dd3",
+    "bytes": 164235
+  },
+  "source": {
+    "file": "resume/index.md",
+    "sha256": "b01d11859f79a3357f41d1905cd5f0ada69bc4704478ffd14834a83ca36eba14"
+  },
+  "build": {
+    "environment": "local",
+    "commit": null,
+    "url": null
+  }
+}

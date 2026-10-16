@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": { "correctness": "error" },
+  "overrides": [
+    { "files": ["scripts/*.mjs"], "env": { "node": true, "browser": false } },
+    { "files": ["scripts/test-cv-verification.mjs"], "env": { "node": true, "browser": true } },
+    { "files": ["resume/verify/*.js"], "env": { "node": false, "browser": true } }
+  ]
+}

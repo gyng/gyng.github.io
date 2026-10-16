@@ -1,0 +1,101 @@
+name: Generate CV PDF
+
+on:
+  push:
+    branches: [gh-pages]
+    paths:
+      - resume/index.md
+      - 'resume/verify/**'
+      - 'scripts/**'
+      - package.json
+      - package-lock.json
+      - .oxfmtrc.json
+      - .oxlintrc.json
+      - .github/workflows/cv-pdf.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  attestations: write
+
+concurrency:
+  group: cv-pdf
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    if: github.ref == 'refs/heads/gh-pages'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm run format:check
+      - run: npm run lint
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build:cv
+      - run: npm run verify:cv
+      - run: npm run test:cv
+      - name: Check PDF
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          pdfinfo resume/resume.pdf
+          test "$(pdfinfo resume/resume.pdf | awk '/^Pages:/ {print $2}')" = 2
+          pdftotext resume/resume.pdf /tmp/cv.txt
+          for section in 'Ng Guoyou' 'SPH Media' 'GovTech' 'Education' 'Selected Projects'; do
+            grep -q "$section" /tmp/cv.txt
+          done
+      - name: Attest PDF and source manifest
+        id: attest
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4
+        with:
+          subject-path: |
+            resume/resume.pdf
+            resume/provenance.json
+      - name: Save and verify signatures
+        env:
+          ATTESTATION_BUNDLE: ${{ steps.attest.outputs.bundle-path }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp "$ATTESTATION_BUNDLE" resume/resume.pdf.sigstore.json
+          for artifact in resume/resume.pdf resume/provenance.json; do
+            gh attestation verify "$artifact" \
+              --repo "$GITHUB_REPOSITORY" \
+              --bundle resume/resume.pdf.sigstore.json \
+              --signer-workflow "$GITHUB_REPOSITORY/.github/workflows/cv-pdf.yml" \
+              --source-ref refs/heads/gh-pages \
+              --source-digest "$GITHUB_SHA" \
+              --deny-self-hosted-runners
+          done
+      - name: Save generated PDF and verification files
+        id: save
+        run: |
+          git fetch origin gh-pages
+          if [ "$(git rev-parse origin/gh-pages)" != "$GITHUB_SHA" ]; then
+            echo '::error::Branch advanced during the build. Run this workflow on the latest commit.'
+            exit 1
+          fi
+          git add resume/resume.pdf resume/resume.pdf.sha256 resume/provenance.json resume/resume.pdf.sigstore.json
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Generate CV PDF and signed provenance'
+          # A normal push also rejects a branch update after the check above.
+          # Never rebase an attested PDF onto a different source revision.
+          git push origin HEAD:gh-pages
+          echo 'changed=true' >> "$GITHUB_OUTPUT"
+      # GITHUB_TOKEN commits do not trigger Pages automatically. Request the
+      # existing branch-based build explicitly, without changing Pages settings.
+      - name: Rebuild GitHub Pages
+        if: steps.save.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
