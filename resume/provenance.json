@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "pdf": {
     "file": "resume.pdf",
-    "sha256": "75f5d340abf9ede529aff0a59e9d4f72e37a38458f47565c10336c38e53c3dd3",
-    "bytes": 164235
+    "sha256": "d8a8809082c7cbac3c8e215f001cc09d3b25e774b1044dc7874c0fe11acee634",
+    "bytes": 74940
   },
   "source": {
     "file": "resume/index.md",
     "sha256": "b01d11859f79a3357f41d1905cd5f0ada69bc4704478ffd14834a83ca36eba14"
   },
   "build": {
-    "environment": "local",
-    "commit": null,
-    "url": null
+    "environment": "github-actions",
+    "commit": "320e5b229fd557d5d270ec6e840a407f7235165e",
+    "url": "https://github.com/gyng/gyng.github.io/actions/runs/38828313113/attempts/1"
   }
 }
