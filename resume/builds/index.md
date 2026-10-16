@@ -6,6 +6,7 @@ Each published signed build is saved here. The first row is the latest build. Lo
 
 | Build | Source commit | Download | Signature |
 | --- | --- | --- | --- |
+| 38832348525-1 | [81f0424c0be8](https://github.com/gyng/gyng.github.io/commit/81f0424c0be8f5f39e2bdba3aea906d2cc5aa8c8) | <a href="38832348525-1/resume.pdf" download="Resume - Ng Guoyou.pdf">PDF</a> | [Attestation](https://github.com/gyng/gyng.github.io/attestations/56489349) |
 | 38832237326-1 | [cb2986542af6](https://github.com/gyng/gyng.github.io/commit/cb2986542af6dcdf948e8f8d46ffa91a30e207fb) | <a href="38832237326-1/resume.pdf" download="Resume - Ng Guoyou.pdf">PDF</a> | [Attestation](https://github.com/gyng/gyng.github.io/attestations/56489111) |
 | 38831638161-1 | [daedb015d430](https://github.com/gyng/gyng.github.io/commit/daedb015d430e772fbbcd54025f133e341b7e3fe) | <a href="38831638161-1/resume.pdf" download="Resume - Ng Guoyou.pdf">PDF</a> | [Attestation](https://github.com/gyng/gyng.github.io/attestations/56487879) |
 | 38831018537-1 | [924c4b61056b](https://github.com/gyng/gyng.github.io/commit/924c4b61056b8a9474ffaaf1d1285c860592812b) | <a href="38831018537-1/resume.pdf" download="Resume - Ng Guoyou.pdf">PDF</a> | [Attestation](https://github.com/gyng/gyng.github.io/attestations/56486788) |

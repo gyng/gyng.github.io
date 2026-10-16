@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "pdf": {
+    "file": "resume.pdf",
+    "sha256": "587b61f414ca8428d76301624f570e80baaab90d0778dccd7bfe6bc01e742aba",
+    "bytes": 75805
+  },
+  "source": {
+    "file": "resume/index.md",
+    "sha256": "cb78080676eaa8999d21a180e8b8623705b669865411a066e0784c57a6eb89ce"
+  },
+  "build": {
+    "environment": "github-actions",
+    "commit": "81f0424c0be8f5f39e2bdba3aea906d2cc5aa8c8",
+    "url": "https://github.com/gyng/gyng.github.io/actions/runs/38832348525/attempts/1"
+  }
+}
