@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "builds": [
     {
+      "id": "38832237326-1",
+      "pdfSha256": "becf688f76c3078c7b8654379699e8e7a35b0266e6268e2424421473c654b081",
+      "sourceCommit": "cb2986542af6dcdf948e8f8d46ffa91a30e207fb",
+      "attestationUrl": "https://github.com/gyng/gyng.github.io/attestations/56489111"
+    },
+    {
       "id": "38831638161-1",
       "pdfSha256": "33a5b126013e3d4b2ef97aaf20b6de00bb83062d97f69986f8e80aac30470eef",
       "sourceCommit": "daedb015d430e772fbbcd54025f133e341b7e3fe",
