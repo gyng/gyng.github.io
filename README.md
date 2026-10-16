@@ -2,7 +2,7 @@
 
 Engineering leader based in Singapore, building AI, web application, and content platforms. I combine team leadership with hands-on engineering.
 
-[CV](https://gyng.github.io/resume/) · [Download PDF](https://gyng.github.io/resume/resume.pdf) · [Verify PDF](https://gyng.github.io/resume/verify/)
+[Resume](https://gyng.github.io/resume/) · [Download PDF](https://gyng.github.io/resume/resume.pdf) · [Verify resume PDF](https://gyng.github.io/resume/verify/)
 
 ## Work
 
@@ -28,7 +28,7 @@ Some of my writing and presentations are in [my book](https://gyng.github.io/boo
 
 ng.guoyou[at]gmail.com · [GitHub](https://github.com/gyng) · [LinkedIn](https://www.linkedin.com/in/guoyou/)
 
-## About this CV
+## About this resume
 
 The PDF is generated from Markdown and includes a compact source fingerprint. Published builds have a SHA-256 checksum and signed GitHub build provenance. The [verification tool](https://gyng.github.io/resume/verify/) checks a PDF locally in your browser and provides the signature-verification command.
 

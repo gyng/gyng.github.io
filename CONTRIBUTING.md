@@ -21,7 +21,9 @@ existing Chrome installation instead of downloading Chromium, set `CHROME_PATH`
 to its executable when running `npm run build:cv`. Print layout lives in
 `scripts/cv-print.css`; the Markdown's explicit page break is preserved.
 
-The PDF ends with a compact SHA-256 fingerprint of the Markdown source. Each build
+The PDF ends with a labelled source hash (the first 12 characters of the
+Markdown source's SHA-256 hash) and a link to the verification tool. In published
+PDFs, the source hash links to the Markdown file at the exact source commit. Each build
 also writes `resume/resume.pdf.sha256` and `resume/provenance.json`, which record
 the full PDF and source hashes. Local builds are explicitly labelled unsigned and
 remove any previous generated signature bundle so it cannot be mistaken for a
@@ -46,7 +48,7 @@ advances during the build, publishing fails rather than rebasing old artifacts
 onto newer source. Run the workflow on the latest commit in that case.
 
 The workflow can also be run manually from the Actions tab. Review the PDF layout
-after substantial content changes. See [CV verification](resume/verify/index.md)
+after substantial content changes. See [resume verification instructions](resume/verify/technical/index.md)
 for checksum, signature, and source fingerprint checks. Local verification checks
 hash consistency; signed provenance is generated and verified only in GitHub Actions.
 The verification page also provides a browser file checker. It hashes the PDF on

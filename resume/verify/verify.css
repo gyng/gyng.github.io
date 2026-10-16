@@ -19,6 +19,18 @@ pre {
 #cv-verifier h2 {
   margin-top: 0;
 }
+#cv-verifier p {
+  overflow-wrap: anywhere;
+}
+#technical-details {
+  margin-top: 1.2rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid #d7dfe5;
+}
+#technical-details summary {
+  cursor: pointer;
+  font-weight: 600;
+}
 #cv-verifier a {
   color: #1c4b73;
 }

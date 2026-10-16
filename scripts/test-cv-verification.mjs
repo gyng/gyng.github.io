@@ -71,9 +71,18 @@ test('browser CV verification', async (t) => {
       );
 
     await run('matching local PDF is explicitly unsigned and works on mobile', async (page) => {
+      assert.equal(
+        await page.getByRole('link', { name: 'Resume', exact: true }).getAttribute('href'),
+        '../',
+      );
+      assert.equal(await page.locator('#technical-details').getAttribute('open'), null);
+      assert.equal(await page.locator('#check-published').isVisible(), false);
       await choose(page);
       await state(page, 'match');
       assert.match(await page.locator('#verification-status').innerText(), /unsigned/);
+      assert.equal(await page.locator('#technical-details').getAttribute('open'), null);
+      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+      await page.locator('#technical-details summary').click();
       assert.equal(await page.locator('#actual-hash').innerText(), original.pdf.sha256);
       assert.equal(
         await page.locator('#source-fingerprint').innerText(),
@@ -92,6 +101,7 @@ test('browser CV verification', async (t) => {
         };
         await choose(page);
         await state(page, 'match');
+        await page.locator('#technical-details summary').click();
         assert.equal(
           await page.locator('#recorded-build').getAttribute('href'),
           manifest.build.url,
@@ -113,14 +123,17 @@ test('browser CV verification', async (t) => {
     await run('non-PDF input is rejected', async (page) => {
       await choose(page, Buffer.from('not a PDF'));
       await state(page, 'error');
-      assert.match(await page.locator('#verification-status').innerText(), /PDF header/);
+      assert.match(
+        await page.locator('#verification-status').innerText(),
+        /Cannot read this file as a PDF/,
+      );
       assert.equal(await page.locator('#verification-result').isVisible(), false);
     });
     await run('manifest fetch failure is reported', async (page) => {
       manifestStatus = 503;
       await choose(page);
       await state(page, 'error');
-      assert.match(await page.locator('#verification-status').innerText(), /Could not load/);
+      assert.match(await page.locator('#verification-status').innerText(), /Cannot get/);
     });
     await run('unexpected build URL is rejected', async (page) => {
       manifest.build = { environment: 'github-actions', url: 'javascript:alert(1)' };
@@ -134,6 +147,7 @@ test('browser CV verification', async (t) => {
       await state(page, 'match');
       assert.equal(await page.locator('#checked-filename').innerText(), name);
       assert.equal(await page.locator('#checked-filename img').count(), 0);
+      await page.locator('#technical-details summary').click();
       assert(
         (await page.locator('#verification-command').innerText()).startsWith(
           "gh attestation verify './cv'\\''$(echo test)<img>.pdf'",
@@ -141,6 +155,8 @@ test('browser CV verification', async (t) => {
       );
     });
     await run('published PDF can be checked without choosing a file', async (page) => {
+      assert.equal(await page.locator('#check-published').isVisible(), false);
+      await page.locator('#technical-details summary').click();
       await page.locator('#check-published').click();
       await state(page, 'match');
       assert.equal(await page.locator('#checked-filename').innerText(), 'resume.pdf');

@@ -14,10 +14,7 @@ const shellQuote = (value) => `'${value.replaceAll("'", "'\\''")}'`;
 
 async function fetchFile(path) {
   const response = await fetch(path, { cache: 'no-store' });
-  if (!response.ok)
-    throw new Error(
-      'Could not load the published verification files. Try again after the site finishes updating.',
-    );
+  if (!response.ok) throw new Error('Cannot get the current PDF data. Try again later.');
   return response;
 }
 
@@ -30,13 +27,13 @@ async function loadManifest() {
     !sha256Pattern.test(manifest.source?.sha256 ?? '') ||
     !['local', 'github-actions'].includes(manifest.build?.environment)
   ) {
-    throw new Error('The published build manifest has an unexpected format.');
+    throw new Error('Cannot read the current build data. Try again later.');
   }
   if (
     manifest.build.environment === 'github-actions' &&
     !buildUrlPattern.test(manifest.build.url ?? '')
   ) {
-    throw new Error('The published build link has an unexpected format.');
+    throw new Error('Cannot use the current build link. Try again later.');
   }
   return manifest;
 }
@@ -47,14 +44,14 @@ function render(file, hash, manifest) {
   status.dataset.state = matches ? 'match' : 'different';
   status.textContent = matches
     ? local
-      ? 'Matches the local PDF — unsigned'
-      : 'Matches the published PDF'
-    : 'Does not match the latest PDF';
+      ? 'The PDF matches the local build — unsigned'
+      : 'The PDF matches the current resume'
+    : 'The PDF is different from the current resume';
   element('verification-explanation').textContent = matches
     ? local
-      ? 'The bytes match the local build manifest. This build has no signed GitHub attestation.'
-      : 'The bytes match the published build manifest. Use the command below to verify the signed provenance.'
-    : 'This may be an older version or a modified file. A mismatch alone does not establish which. Use the signature check below to look for a signed build of this file.';
+      ? 'This local build has no signature.'
+      : 'The file check is complete. To check the build signature, open Technical details.'
+    : 'This can be an older version or a modified file. Open Technical details to check for a signed build.';
   element('checked-filename').textContent = file.name;
   element('actual-hash').textContent = hash;
   element('expected-hash').textContent = manifest.pdf.sha256;
@@ -71,23 +68,25 @@ function render(file, hash, manifest) {
   ].join('\n');
   copyButton.textContent = 'Copy command';
   result.hidden = false;
+  element('verification-data').hidden = false;
 }
 
 async function check(loadFile) {
   const current = ++operation;
   result.hidden = true;
+  element('verification-data').hidden = true;
   publishedButton.disabled = true;
   status.dataset.state = 'working';
-  status.textContent = 'Calculating SHA-256 and loading the published manifest…';
+  status.textContent = 'Checking your PDF…';
   try {
     if (!globalThis.crypto?.subtle)
-      throw new Error('This browser needs a secure HTTPS connection for SHA-256 verification.');
+      throw new Error('Open this page with HTTPS to check a PDF file.');
     const file = await loadFile();
     if (!file || file.size > 20 * 1024 * 1024)
-      throw new Error('Choose a PDF no larger than 20 MB.');
+      throw new Error('Select a PDF file that is 20 MB or smaller.');
     const bytes = await file.arrayBuffer();
     if (new TextDecoder().decode(bytes.slice(0, 5)) !== '%PDF-')
-      throw new Error('The selected file does not have a PDF header.');
+      throw new Error('Cannot read this file as a PDF. Select another file.');
     const [digest, manifest] = await Promise.all([
       crypto.subtle.digest('SHA-256', bytes),
       loadManifest(),
@@ -100,7 +99,7 @@ async function check(loadFile) {
   } catch (error) {
     if (current !== operation) return;
     status.dataset.state = 'error';
-    status.textContent = error.message || 'Verification could not be completed.';
+    status.textContent = error.message || 'Cannot complete the check. Try again.';
   } finally {
     if (current === operation) publishedButton.disabled = false;
   }
