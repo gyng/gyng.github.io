@@ -23,7 +23,7 @@ Apr 2024–Present
 - Lead the rollout of enterprise AI tools and model access for engineering and business teams, spanning Amazon Bedrock, Google Cloud AI services, and Claude Enterprise.
 - Built a developer access platform for identity and access management (IAM), automating access governance through provisioning, policy enforcement, approval workflows, and audit logging.
 - Own strategy and delivery for WebCore, the shared web application platform supporting 15+ publications and millions of daily page views.
-- Own strategy and delivery for SPH's central platform for news ingestion, search, and distribution. Led expansion into event-driven content updates and searchable audio transcripts.
+- Own strategy and delivery for SPH's central platform for news ingestion, search, and distribution.
 - Accountable for WebCore and content platform reliability under government requirements. Led preparations for Singapore's 2025 General Election, with zero downtime during the event.
 - Lead technology strategy and engineering delivery for B2B content services, supporting licensing and syndication revenue through delivery platforms and APIs. Oversaw client API migrations and partner integrations.
 - Provided technical guidance on media asset management standards, procurement, and AI-assisted asset tagging.
