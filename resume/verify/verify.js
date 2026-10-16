@@ -14,12 +14,12 @@ const shellQuote = (value) => `'${value.replaceAll("'", "'\\''")}'`;
 
 async function fetchFile(path) {
   const response = await fetch(path, { cache: 'no-store' });
-  if (!response.ok) throw new Error('Cannot get the current PDF data. Try again later.');
+  if (!response.ok) throw new Error('Cannot get the build data. Try again later.');
   return response;
 }
 
-async function loadManifest() {
-  const manifest = await (await fetchFile('../provenance.json')).json();
+async function loadManifest(path = '../provenance.json') {
+  const manifest = await (await fetchFile(path)).json();
   if (
     manifest.schemaVersion !== 1 ||
     manifest.pdf?.file !== 'resume.pdf' ||
@@ -38,27 +38,76 @@ async function loadManifest() {
   return manifest;
 }
 
-function render(file, hash, manifest) {
+async function findArchivedBuild(hash) {
+  const index = await (await fetchFile('../builds/index.json')).json();
+  if (
+    index.schemaVersion !== 1 ||
+    !Array.isArray(index.builds) ||
+    !index.builds.every(
+      (build) =>
+        /^\d+-\d+$/.test(build.id ?? '') &&
+        sha256Pattern.test(build.pdfSha256 ?? '') &&
+        /^[a-f0-9]{40}$/.test(build.sourceCommit ?? '') &&
+        /^https:\/\/github\.com\/gyng\/gyng\.github\.io\/attestations\/\d+$/.test(
+          build.attestationUrl ?? '',
+        ),
+    )
+  ) {
+    throw new Error('Cannot read the build history. Try again later.');
+  }
+  const entry = index.builds.find((build) => build.pdfSha256 === hash);
+  if (!entry) return null;
+  const manifest = await loadManifest(`../builds/${entry.id}/provenance.json`);
+  const [run, attempt] = entry.id.split('-');
+  if (
+    manifest.pdf.sha256 !== hash ||
+    manifest.build.environment !== 'github-actions' ||
+    manifest.build.commit !== entry.sourceCommit ||
+    manifest.build.url !==
+      `https://github.com/gyng/gyng.github.io/actions/runs/${run}/attempts/${attempt}`
+  ) {
+    throw new Error('The saved build data does not match. Try again later.');
+  }
+  return { entry, manifest };
+}
+
+function render(file, hash, manifest, archive) {
   const matches = hash === manifest.pdf.sha256;
   const local = manifest.build.environment === 'local';
-  status.dataset.state = matches ? 'match' : 'different';
-  status.textContent = matches
-    ? local
-      ? 'The PDF matches the local build — unsigned'
-      : 'The PDF matches the current resume'
-    : 'The PDF is different from the current resume';
+  status.dataset.state = archive ? 'older' : matches ? 'match' : 'different';
+  status.textContent = archive
+    ? 'The PDF matches an earlier resume'
+    : matches
+      ? local
+        ? 'The PDF matches the local build — unsigned'
+        : 'The PDF matches the current resume'
+      : 'No matching published PDF was found';
   element('verification-explanation').textContent = matches
     ? local
       ? 'This local build has no signature.'
       : 'The file check is complete. To check the build signature, open Technical details.'
-    : 'This can be an older version or a modified file. Open Technical details to check for a signed build.';
+    : 'This file may have changed, or its build may not be in the archive. Open Technical details to check for a signed build.';
   element('checked-filename').textContent = file.name;
   element('actual-hash').textContent = hash;
   element('expected-hash').textContent = manifest.pdf.sha256;
+  element('expected-hash-label').textContent = matches
+    ? 'Matched PDF hash (SHA-256)'
+    : 'Current PDF hash (SHA-256)';
   element('source-fingerprint').textContent = manifest.source.sha256.slice(0, 12);
   element('build-links').hidden = local;
   element('recorded-build').removeAttribute('href');
   if (!local) element('recorded-build').href = manifest.build.url;
+  element('recorded-build').textContent = matches
+    ? 'Build and signatures for this version'
+    : 'Current build and signatures';
+  element('signature-bundle').href = archive
+    ? `../builds/${archive.entry.id}/resume.pdf.sigstore.json`
+    : '../resume.pdf.sigstore.json';
+  element('matched-version-links').hidden = !archive;
+  if (archive) {
+    element('matched-download').href = `../builds/${archive.entry.id}/resume.pdf`;
+    element('matched-attestation').href = archive.entry.attestationUrl;
+  }
   element('verification-command').textContent = [
     `gh attestation verify ${shellQuote(`./${file.name}`)} \\`,
     '  --repo gyng/gyng.github.io \\',
@@ -95,7 +144,9 @@ async function check(loadFile) {
     const hash = Array.from(new Uint8Array(digest), (byte) =>
       byte.toString(16).padStart(2, '0'),
     ).join('');
-    render(file, hash, manifest);
+    const archive = hash === manifest.pdf.sha256 ? null : await findArchivedBuild(hash);
+    if (current !== operation) return;
+    render(file, hash, archive?.manifest ?? manifest, archive);
   } catch (error) {
     if (current !== operation) return;
     status.dataset.state = 'error';

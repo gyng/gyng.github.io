@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { test } from 'node:test';
@@ -13,6 +14,9 @@ test('browser CV verification', async (t) => {
   let manifest;
   let manifestStatus;
   let methods;
+  let history;
+  let historicalManifest;
+  let historyStatus;
   const assets = new Map([
     ['/resume/verify/', [html, 'text/html; charset=utf-8']],
     [
@@ -32,6 +36,16 @@ test('browser CV verification', async (t) => {
       response.end(JSON.stringify(manifest));
       return;
     }
+    if (request.url === '/resume/builds/index.json') {
+      response.writeHead(historyStatus, { 'Content-Type': 'application/json' });
+      response.end(JSON.stringify(history));
+      return;
+    }
+    if (request.url === '/resume/builds/100-1/provenance.json') {
+      response.writeHead(200, { 'Content-Type': 'application/json' });
+      response.end(JSON.stringify(historicalManifest));
+      return;
+    }
     const asset = assets.get(request.url);
     response.writeHead(asset ? 200 : 404, { 'Content-Type': asset?.[1] ?? 'text/plain' });
     response.end(asset?.[0] ?? 'Not found');
@@ -46,6 +60,9 @@ test('browser CV verification', async (t) => {
         manifest = structuredClone(original);
         manifest.build = { environment: 'local', commit: null, url: null };
         manifestStatus = 200;
+        history = { schemaVersion: 1, builds: [] };
+        historicalManifest = null;
+        historyStatus = 200;
         methods = [];
         const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
         const errors = [];
@@ -117,8 +134,77 @@ test('browser CV verification', async (t) => {
       await state(page, 'different');
       assert.match(
         await page.locator('#verification-explanation').innerText(),
-        /older version or a modified file/,
+        /may have changed, or its build may not be in the archive/,
       );
+    });
+    const archivedPdf = Buffer.from('%PDF-1.4\narchived build');
+    const prepareHistory = () => {
+      historicalManifest = structuredClone(original);
+      historicalManifest.pdf.sha256 = createHash('sha256').update(archivedPdf).digest('hex');
+      historicalManifest.build = {
+        environment: 'github-actions',
+        commit: 'b'.repeat(40),
+        url: 'https://github.com/gyng/gyng.github.io/actions/runs/100/attempts/1',
+      };
+      history.builds.push({
+        id: '100-1',
+        pdfSha256: historicalManifest.pdf.sha256,
+        sourceCommit: historicalManifest.build.commit,
+        attestationUrl: 'https://github.com/gyng/gyng.github.io/attestations/200',
+      });
+    };
+    await run(
+      'an older published PDF has its own download, build and signature links',
+      async (page) => {
+        prepareHistory();
+        await choose(page, archivedPdf);
+        await state(page, 'older');
+        assert.match(
+          await page.locator('#verification-status').innerText(),
+          /matches an earlier resume/,
+        );
+        assert.equal(
+          await page.locator('#matched-download').getAttribute('href'),
+          '../builds/100-1/resume.pdf',
+        );
+        assert.equal(
+          await page.locator('#matched-attestation').getAttribute('href'),
+          history.builds[0].attestationUrl,
+        );
+        await page.locator('#technical-details summary').click();
+        assert.equal(
+          await page.locator('#signature-bundle').getAttribute('href'),
+          '../builds/100-1/resume.pdf.sigstore.json',
+        );
+        assert.equal(
+          await page.locator('#recorded-build').getAttribute('href'),
+          historicalManifest.build.url,
+        );
+        assert.equal(
+          await page.locator('#expected-hash').innerText(),
+          historicalManifest.pdf.sha256,
+        );
+        await choose(page);
+        await state(page, 'match');
+        assert.equal(await page.locator('#matched-version-links').isVisible(), false);
+      },
+    );
+    await run('history fetch failure does not report an unknown PDF', async (page) => {
+      historyStatus = 503;
+      await choose(page, archivedPdf);
+      await state(page, 'error');
+    });
+    await run('a history entry cannot point to a different PDF', async (page) => {
+      prepareHistory();
+      historicalManifest.pdf.sha256 = original.pdf.sha256;
+      await choose(page, archivedPdf);
+      await state(page, 'error');
+    });
+    await run('history links cannot use an unexpected destination', async (page) => {
+      prepareHistory();
+      history.builds[0].attestationUrl = 'javascript:alert(1)';
+      await choose(page, archivedPdf);
+      await state(page, 'error');
     });
     await run('non-PDF input is rejected', async (page) => {
       await choose(page, Buffer.from('not a PDF'));

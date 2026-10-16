@@ -78,7 +78,7 @@ jobs:
               --source-digest "$GITHUB_SHA" \
               --deny-self-hosted-runners
           done
-      - name: Record attestation link
+      - name: Record attestation link and archive signed build
         env:
           ATTESTATION_URL: ${{ steps.attest.outputs.attestation-url }}
         run: node scripts/record-cv-attestation.mjs
@@ -90,7 +90,7 @@ jobs:
             echo '::error::Branch advanced during the build. Run this workflow on the latest commit.'
             exit 1
           fi
-          git add resume/resume.pdf resume/resume.pdf.sha256 resume/provenance.json resume/resume.pdf.sigstore.json resume/attestations/
+          git add resume/resume.pdf resume/resume.pdf.sha256 resume/provenance.json resume/resume.pdf.sigstore.json resume/attestations/ resume/builds/
           if git diff --cached --quiet; then
             exit 0
           fi

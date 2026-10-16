@@ -1,4 +1,5 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { archiveBuild, artifactNames } from './archive-cv.mjs';
 
 const root = new URL('../', import.meta.url);
 const manifest = JSON.parse(await readFile(new URL('resume/provenance.json', root), 'utf8'));
@@ -46,3 +47,10 @@ await writeFile(
   { flag: 'wx' },
 );
 console.log(`Recorded attestation link for run ${runId}, attempt ${attempt}.`);
+const artifacts = Object.fromEntries(
+  await Promise.all(
+    artifactNames.map(async (name) => [name, await readFile(new URL(`resume/${name}`, root))]),
+  ),
+);
+await archiveBuild(root, artifacts, attestationUrl);
+console.log('Archived signed PDF and verification files.');

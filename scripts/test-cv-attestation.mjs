@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { copyFile, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -14,16 +15,24 @@ test('attestation redirects preserve the signed artifacts and build identity', a
       new URL('record-cv-attestation.mjs', import.meta.url),
       join(root, 'scripts/record-cv-attestation.mjs'),
     );
+    await copyFile(
+      new URL('archive-cv.mjs', import.meta.url),
+      join(root, 'scripts/archive-cv.mjs'),
+    );
+    const pdf = '%PDF-1.4\nfixture';
+    const hash = createHash('sha256').update(pdf).digest('hex');
     const manifest = JSON.stringify({
+      pdf: { sha256: hash, bytes: Buffer.byteLength(pdf) },
       build: {
         environment: 'github-actions',
         commit: 'a'.repeat(40),
         url: 'https://github.com/gyng/gyng.github.io/actions/runs/123/attempts/2',
       },
     });
-    const pdf = '%PDF-1.4\nfixture';
     await writeFile(join(root, 'resume/provenance.json'), manifest);
     await writeFile(join(root, 'resume/resume.pdf'), pdf);
+    await writeFile(join(root, 'resume/resume.pdf.sha256'), `${hash}  resume.pdf\n`);
+    await writeFile(join(root, 'resume/resume.pdf.sigstore.json'), 'test signature fixture');
     const env = {
       ...process.env,
       GITHUB_ACTIONS: 'true',
@@ -57,9 +66,31 @@ test('attestation redirects preserve the signed artifacts and build identity', a
     assert(redirect.includes(`href="${env.ATTESTATION_URL}"`));
     assert.equal(await readFile(join(root, 'resume/provenance.json'), 'utf8'), manifest);
     assert.equal(await readFile(join(root, 'resume/resume.pdf'), 'utf8'), pdf);
+    assert.equal(await readFile(join(root, 'resume/builds/123-2/resume.pdf'), 'utf8'), pdf);
+    assert.equal(
+      await readFile(join(root, 'resume/builds/123-2/provenance.json'), 'utf8'),
+      manifest,
+    );
+    const index = JSON.parse(await readFile(join(root, 'resume/builds/index.json'), 'utf8'));
+    assert.equal(index.builds[0].pdfSha256, hash);
+    assert.equal(index.builds[0].attestationUrl, env.ATTESTATION_URL);
     const duplicate = run();
     assert.notEqual(duplicate.status, 0);
     assert.match(duplicate.stderr, /EEXIST/);
+    const laterManifest = JSON.parse(manifest);
+    laterManifest.build.url = 'https://github.com/gyng/gyng.github.io/actions/runs/123/attempts/3';
+    await writeFile(join(root, 'resume/provenance.json'), JSON.stringify(laterManifest));
+    const later = run({ GITHUB_RUN_ATTEMPT: '3' });
+    assert.equal(later.status, 0, later.stderr);
+    const history = JSON.parse(await readFile(join(root, 'resume/builds/index.json'), 'utf8'));
+    assert.deepEqual(
+      history.builds.map((build) => build.id),
+      ['123-3', '123-2'],
+    );
+    assert.equal(
+      await readFile(join(root, 'resume/builds/123-2/provenance.json'), 'utf8'),
+      manifest,
+    );
   } finally {
     await rm(root, { recursive: true, force: true });
   }

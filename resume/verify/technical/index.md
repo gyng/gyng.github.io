@@ -22,7 +22,7 @@ For the build record, select **Build attestation** at the end of the PDF. This l
 
 The PDF uses a fixed link for its build. After signing, the workflow records the GitHub destination for this link. It does not change the signed PDF. Older PDFs can have a **Build & signatures** link that opens the workflow run instead.
 
-The browser tool compares your file with the current PDF. It does not check signatures. A different file can be an older version or a modified file. Use the command above to check for a signed build.
+The browser tool compares your file with the current PDF and the [build archive](../../builds/). It identifies matching versions and provides their download and signature links. It does not check signatures. If no build matches, the file may have changed or may not be in the archive. Use the command above to check for a signed build.
 
 ## Use a signature bundle
 
@@ -35,7 +35,7 @@ The current build has these files:
 
 To use the downloaded signature bundle, add `--bundle resume.pdf.sigstore.json` to the command above. To check the build data, change `resume.pdf` to `provenance.json` in that command.
 
-Use files from the same build. These download links always serve the current build. Each published build is also saved in [Git history](https://github.com/gyng/gyng.github.io/commits/gh-pages/resume/resume.pdf).
+Use files from the same build. These download links always serve the current build. The [build archive](../../builds/) keeps each published signed PDF and its verification files. GitHub Actions adds each successful build automatically. Older files are also saved in [Git history](https://github.com/gyng/gyng.github.io/commits/gh-pages/resume/resume.pdf).
 
 See [GitHub's verification instructions](https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations) for more information.
 

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "builds": [
+    {
+      "id": "38830033081-1",
+      "pdfSha256": "d04d01e352ca9c40900184f77e7901cb79fbe243e9424c7e6ba5eb76d0138d64",
+      "sourceCommit": "3e4fba8cb0ce842712645f5c8103ca5afd8c3fd9",
+      "attestationUrl": "https://github.com/gyng/gyng.github.io/attestations/56484714"
+    },
+    {
+      "id": "38829505453-1",
+      "pdfSha256": "5ef3510b3e13d1a7b619da756a3fc239adb20724c77e10c876cb839964ef7bce",
+      "sourceCommit": "8730a8a94ecd38a27fa5dc20cc7d2c14342bfff2",
+      "attestationUrl": "https://github.com/gyng/gyng.github.io/attestations/56483345"
+    },
+    {
+      "id": "38828313113-1",
+      "pdfSha256": "d8a8809082c7cbac3c8e215f001cc09d3b25e774b1044dc7874c0fe11acee634",
+      "sourceCommit": "320e5b229fd557d5d270ec6e840a407f7235165e",
+      "attestationUrl": "https://github.com/gyng/gyng.github.io/attestations/56480591"
+    }
+  ]
+}

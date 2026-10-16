@@ -44,6 +44,11 @@ Sigstore; no manually managed signing key or additional secret is needed.
 
 The workflow commits the PDF and verification files together and explicitly
 requests a GitHub Pages rebuild using the existing branch-based configuration.
+After signature verification, it also keeps byte-for-byte copies in
+`resume/builds/<run>-<attempt>/` and updates the build history page and JSON index.
+Existing archive folders are never overwritten. The browser verifier uses the
+index to recognise earlier PDFs and link to their matching artifacts. Local
+previews and unsuccessful builds are not added to the published archive.
 It needs `contents: write`, `pages: write`, `id-token: write`, and
 `attestations: write`; branch protection that blocks bot commits also blocks the
 generated update. Generated commits do not retrigger the workflow. If the branch
@@ -55,6 +60,6 @@ after substantial content changes. See [resume verification instructions](resume
 for checksum, signature, and source fingerprint checks. Local verification checks
 hash consistency; signed provenance is generated and verified only in GitHub Actions.
 The verification page also provides a browser file checker. It hashes the PDF on
-the visitor's device without uploading it, compares it with the published manifest,
+the visitor's device without uploading it, compares it with current and archived manifests,
 and provides the signature-verification command. A browser checksum match is
 labelled separately from cryptographic signature verification.

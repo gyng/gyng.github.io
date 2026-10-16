@@ -5,6 +5,7 @@
   "ignorePatterns": [
     "resume/provenance.json",
     "resume/resume.pdf.sigstore.json",
-    "resume/attestations/**"
+    "resume/attestations/**",
+    "resume/builds/**"
   ]
 }

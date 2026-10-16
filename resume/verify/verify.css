@@ -90,7 +90,11 @@ pre {
 #verification-status {
   font-weight: 600;
 }
-#verification-status[data-state='match'] {
+#verification-status:empty {
+  margin: 0;
+}
+#verification-status[data-state='match'],
+#verification-status[data-state='older'] {
   color: #25613f;
 }
 #verification-status[data-state='different'] {

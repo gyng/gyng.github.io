@@ -32,4 +32,6 @@ ng.guoyou[at]gmail.com · [GitHub](https://github.com/gyng) · [LinkedIn](https:
 
 The PDF is generated from Markdown and links to its source commit and build attestation. Published builds have a SHA-256 checksum and signed GitHub build provenance. The [verification tool](https://gyng.github.io/resume/verify/) checks a PDF locally in your browser and provides the signature-verification command.
 
+Each published signed PDF and its verification files are kept in the [build archive](https://gyng.github.io/resume/builds/). The verifier recognises current and earlier versions.
+
 [Build and verification instructions](CONTRIBUTING.md).
