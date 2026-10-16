@@ -2,7 +2,7 @@
 
 Engineering leader based in Singapore, building AI, web application, and content platforms. I combine team leadership with hands-on engineering.
 
-[Resume](https://gyng.github.io/resume/) · [Download PDF](https://gyng.github.io/resume/resume.pdf) · [Verify resume PDF](https://gyng.github.io/resume/verify/)
+[Resume](https://gyng.github.io/resume/) · <a href="https://gyng.github.io/resume/resume.pdf" download="Resume - Ng Guoyou.pdf">Download PDF</a> · [Verify resume PDF](https://gyng.github.io/resume/verify/)
 
 ## Work
 

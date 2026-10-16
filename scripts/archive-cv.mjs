@@ -51,13 +51,13 @@ export async function archiveBuild(root, artifacts, attestationUrl) {
   await writeFile(new URL('index.json', directory), `${JSON.stringify(index, null, 2)}\n`);
   const rows = index.builds.map(
     (build) =>
-      `| ${build.id} | [${build.sourceCommit.slice(0, 12)}](https://github.com/gyng/gyng.github.io/commit/${build.sourceCommit}) | [PDF](${build.id}/resume.pdf) | [Attestation](${build.attestationUrl}) |`,
+      `| ${build.id} | [${build.sourceCommit.slice(0, 12)}](https://github.com/gyng/gyng.github.io/commit/${build.sourceCommit}) | <a href="${build.id}/resume.pdf" download="Resume - Ng Guoyou.pdf">PDF</a> | [Attestation](${build.attestationUrl}) |`,
   );
   await writeFile(
     new URL('index.md', directory),
     `# Resume build history
 
-[Resume](../) · [Download PDF](../resume.pdf) · [Verify resume PDF](../verify/)
+[Resume](../) · <a href="../resume.pdf" download="Resume - Ng Guoyou.pdf">Download PDF</a> · [Verify resume PDF](../verify/)
 
 Each published signed build is saved here. The first row is the latest build. Local previews are not published.
 

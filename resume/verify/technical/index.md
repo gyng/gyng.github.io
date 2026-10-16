@@ -1,20 +1,20 @@
 # Resume verification instructions
 
-[Resume](../../) · [Download PDF](../../resume.pdf) · [Verify resume PDF](../)
+[Resume](../../) · <a href="../../resume.pdf" download="Resume - Ng Guoyou.pdf">Download PDF</a> · [Verify resume PDF](../)
 
 ## Check the signature
 
 Install the [GitHub CLI](https://cli.github.com/). Open a terminal in the folder that contains your PDF. Run this command:
 
 ```sh
-gh attestation verify resume.pdf \
+gh attestation verify 'Resume - Ng Guoyou.pdf' \
   --repo gyng/gyng.github.io \
   --signer-workflow gyng/gyng.github.io/.github/workflows/cv-pdf.yml \
   --source-ref refs/heads/gh-pages \
   --deny-self-hosted-runners
 ```
 
-Change `resume.pdf` if your file has a different name.
+Change `Resume - Ng Guoyou.pdf` if your file has a different name. The filename does not affect hash or signature verification.
 
 This command checks the PDF against its signed build record. It checks the repository, workflow, branch, and GitHub runner identity. It also works for older signed PDFs. GitHub finds the build record from the full file hash.
 
@@ -28,12 +28,12 @@ The browser tool compares your file with the current PDF and the [build archive]
 
 The current build has these files:
 
-- [PDF](../../resume.pdf)
+- <a href="../../resume.pdf" download="Resume - Ng Guoyou.pdf">PDF</a>
 - [Checksum](../../resume.pdf.sha256)
 - [Build data (provenance.json)](../../provenance.json)
 - [Signature bundle](../../resume.pdf.sigstore.json)
 
-To use the downloaded signature bundle, add `--bundle resume.pdf.sigstore.json` to the command above. To check the build data, change `resume.pdf` to `provenance.json` in that command.
+To use the downloaded signature bundle, add `--bundle resume.pdf.sigstore.json` to the command above. To check the build data, change `'Resume - Ng Guoyou.pdf'` to `provenance.json` in that command.
 
 Use files from the same build. These download links always serve the current build. The [build archive](../../builds/) keeps each published signed PDF and its verification files. GitHub Actions adds each successful build automatically. Older files are also saved in [Git history](https://github.com/gyng/gyng.github.io/commits/gh-pages/resume/resume.pdf).
 
@@ -44,16 +44,16 @@ See [GitHub's verification instructions](https://docs.github.com/en/actions/how-
 Save the PDF and checksum in the same folder. Use this command on macOS:
 
 ```sh
-shasum -a 256 --check resume.pdf.sha256
+shasum -a 256 'Resume - Ng Guoyou.pdf'
 ```
 
 Use this command on Linux:
 
 ```sh
-sha256sum --check resume.pdf.sha256
+sha256sum 'Resume - Ng Guoyou.pdf'
 ```
 
-A successful check shows `resume.pdf: OK`. This means that the file matches the downloaded checksum. Use the signature check to verify the build origin.
+Compare the 64-character hash with the hash in `resume.pdf.sha256`. The filenames can differ. A matching hash means that the file matches the downloaded checksum. Use the signature check to verify the build origin.
 
 ## Check the source revision
 

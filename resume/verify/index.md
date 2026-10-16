@@ -1,6 +1,6 @@
 # Verify a resume PDF
 
-[Resume](../) · [Download PDF](../resume.pdf)
+[Resume](../) · <a href="../resume.pdf" download="Resume - Ng Guoyou.pdf">Download PDF</a>
 
 <link rel="stylesheet" href="verify.css">
 <section id="cv-verifier" aria-labelledby="verifier-title">
@@ -15,7 +15,7 @@
   <div id="verification-result" hidden>
     <p>File: <strong id="checked-filename"></strong></p>
     <p id="verification-explanation"></p>
-    <p id="matched-version-links" hidden><a id="matched-download">Download this version</a> · <a id="matched-attestation">View attestation</a></p>
+    <p id="matched-version-links" hidden><a id="matched-download" download="Resume - Ng Guoyou.pdf">Download this version</a> · <a id="matched-attestation">View attestation</a></p>
   </div>
   <details id="technical-details">
     <summary>Technical details</summary>

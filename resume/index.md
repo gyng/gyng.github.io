@@ -7,7 +7,7 @@ Singapore
 
 _Updated October 2026_ · Latest version: [gyng.github.io/resume/](https://gyng.github.io/resume/)
 
-<p class="cv-web-only"><a href="resume.pdf">Download PDF</a> · <a href="verify/">Verify resume PDF</a></p>
+<p class="cv-web-only"><a href="resume.pdf" download="Resume - Ng Guoyou.pdf">Download PDF</a> · <a href="verify/">Verify resume PDF</a></p>
 
 Engineering leader specialising in platform engineering for AI, web, and content systems, combining team leadership with hands-on technical delivery. Experience across media, enterprise AI, financial services, and government.
 
