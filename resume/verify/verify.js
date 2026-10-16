@@ -169,14 +169,20 @@ dropzone.addEventListener('drop', (event) => {
   event.preventDefault();
   delete dropzone.dataset.dragging;
   const file = event.dataTransfer.files[0];
-  if (file) check(() => file);
+  if (file) {
+    const transfer = new DataTransfer();
+    transfer.items.add(file);
+    input.files = transfer.files;
+    check(() => file);
+  }
 });
-publishedButton.addEventListener('click', () =>
+publishedButton.addEventListener('click', () => {
+  input.value = '';
   check(async () => {
     const response = await fetchFile('../resume.pdf');
     return new File([await response.blob()], 'resume.pdf', { type: 'application/pdf' });
-  }),
-);
+  });
+});
 copyButton.addEventListener('click', async () => {
   try {
     await navigator.clipboard.writeText(element('verification-command').textContent);

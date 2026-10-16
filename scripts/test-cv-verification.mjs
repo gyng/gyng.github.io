@@ -241,11 +241,14 @@ test('browser CV verification', async (t) => {
       );
     });
     await run('published PDF can be checked without choosing a file', async (page) => {
+      await choose(page, Buffer.concat([pdf, Buffer.from('\nchanged')]), 'changed.pdf');
+      await state(page, 'different');
       assert.equal(await page.locator('#check-published').isVisible(), false);
       await page.locator('#technical-details summary').click();
       await page.locator('#check-published').click();
       await state(page, 'match');
       assert.equal(await page.locator('#checked-filename').innerText(), 'resume.pdf');
+      assert.equal(await page.locator('#pdf-file').inputValue(), '');
     });
     await run('drag and drop checks the dropped PDF', async (page) => {
       await page.evaluate(() => {
@@ -259,6 +262,10 @@ test('browser CV verification', async (t) => {
       });
       await state(page, 'different');
       assert.equal(await page.locator('#checked-filename').innerText(), 'older.pdf');
+      assert.equal(
+        await page.locator('#pdf-file').evaluate((input) => input.files[0].name),
+        'older.pdf',
+      );
     });
   } finally {
     await browser?.close();
