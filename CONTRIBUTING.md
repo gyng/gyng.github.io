@@ -21,22 +21,25 @@ existing Chrome installation instead of downloading Chromium, set `CHROME_PATH`
 to its executable when running `npm run build:cv`. Print layout lives in
 `scripts/cv-print.css`; the Markdown's explicit page break is preserved.
 
-The PDF ends with a labelled source hash (the first 12 characters of the
-Markdown source's SHA-256 hash) and a link to the verification tool. In published
-PDFs, the source hash links to the Markdown file at the exact source commit. Each build
+Published PDFs end with a compact source commit ID linked to the exact Git commit,
+a link to the verification tool, and a link to the build attestation. Each build
 also writes `resume/resume.pdf.sha256` and `resume/provenance.json`, which record
-the full PDF and source hashes. Local builds are explicitly labelled unsigned and
+the full PDF and Markdown source hashes. Local builds show a short Markdown source
+hash instead of a commit ID, are explicitly labelled unsigned, and
 remove any previous generated signature bundle so it cannot be mistaken for a
-signature of the new PDF. The fingerprint is inserted by the renderer, keeping
-it outside the source it hashes.
+signature of the new PDF. The renderer adds the footer without changing the Markdown.
 
 After changes are pushed to `gh-pages`, the **Generate CV PDF** workflow renders
 the PDF, checks its two-page layout and content, and verifies the recorded hashes.
 It uses [GitHub artifact attestations](https://github.com/actions/attest) to sign
 both the PDF and manifest, saves `resume/resume.pdf.sigstore.json`, and verifies
 both artifacts against the repository, workflow, branch, and source commit before
-publishing them. The PDF's **Build & signatures** link opens that exact run, whose
-summary contains the attestation links. Signing uses GitHub's OIDC identity and
+publishing them. The PDF's **Build attestation** link uses a fixed URL for its run
+and attempt. After signature verification, the workflow saves a redirect in
+`resume/attestations/` to the exact GitHub attestation. Each redirect is retained
+and published with its PDF; the signed PDF and manifest are never changed to add
+the destination. The redirect is a navigation aid; use `gh attestation verify`
+to check the signature. Signing uses GitHub's OIDC identity and
 Sigstore; no manually managed signing key or additional secret is needed.
 
 The workflow commits the PDF and verification files together and explicitly

@@ -18,7 +18,9 @@ Change `resume.pdf` if your file has a different name.
 
 This command checks the PDF against its signed build record. It checks the repository, workflow, branch, and GitHub runner identity. It also works for older signed PDFs. GitHub finds the build record from the full file hash.
 
-For the build record, select **Build & signatures** at the end of the PDF. This link opens the GitHub Actions run that made the file. The run summary links to the signatures.
+For the build record, select **Build attestation** at the end of the PDF. This link takes you to the exact GitHub attestation for that file.
+
+The PDF uses a fixed link for its build. After signing, the workflow records the GitHub destination for this link. It does not change the signed PDF. Older PDFs can have a **Build & signatures** link that opens the workflow run instead.
 
 The browser tool compares your file with the current PDF. It does not check signatures. A different file can be an older version or a modified file. Use the command above to check for a signed build.
 
@@ -53,11 +55,11 @@ sha256sum --check resume.pdf.sha256
 
 A successful check shows `resume.pdf: OK`. This means that the file matches the downloaded checksum. Use the signature check to verify the build origin.
 
-## Check the source hash
+## Check the source revision
 
-The **Source hash** at the end of the PDF identifies the Markdown file used to build it. It includes text, formatting, and links. It shows the first 12 characters of the source's SHA-256 hash. It is not the PDF file hash.
+The **Source commit** at the end of a published PDF identifies the repository revision used to build it. Select the link to open that exact Git commit. The displayed ID is the first 12 characters of the commit ID.
 
-In a published PDF, select **Source hash** to open the Markdown file at the Git commit used for that build. The displayed hash is the Markdown file hash, not the Git commit hash.
+The commit records the Markdown source, renderer, print styles, and dependencies. The commit ID is not the PDF file hash.
 
 The build data records the full source hash, full PDF hash, and source commit. First, check the signature of `provenance.json` as described above.
 
@@ -67,10 +69,10 @@ Then open `resume/index.md` at `build.commit` in [the repository](https://github
 shasum -a 256 index.md
 ```
 
-Compare the full result with `source.sha256` in the verified build data. The first 12 characters must match the printed source hash. Use the full hashes for verification. Use the short hash as a reference only.
+Compare the full result with `source.sha256` in the verified build data. Compare `build.commit` with the linked source commit. Use the full values for verification. Use the short ID as a reference only.
 
-The renderer adds the hash to the PDF after it reads the source. Thus, the printed hash does not change the source hash.
+The renderer adds the footer to the PDF without changing the Markdown source.
 
-The source commit also records the renderer, print styles, and dependencies. Different systems or build times can produce different PDF bytes. Each signed build records the exact PDF that it made.
+Different systems or build times can produce different PDF bytes. Each signed build records the exact PDF that it made.
 
-Local preview builds have an **Unsigned local build** label. They have no signature bundle.
+Local preview builds show a short Markdown source hash and an **Unsigned local build** label. They have no signature bundle.

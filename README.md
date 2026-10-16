@@ -30,6 +30,6 @@ ng.guoyou[at]gmail.com · [GitHub](https://github.com/gyng) · [LinkedIn](https:
 
 ## About this resume
 
-The PDF is generated from Markdown and includes a compact source fingerprint. Published builds have a SHA-256 checksum and signed GitHub build provenance. The [verification tool](https://gyng.github.io/resume/verify/) checks a PDF locally in your browser and provides the signature-verification command.
+The PDF is generated from Markdown and links to its source commit and build attestation. Published builds have a SHA-256 checksum and signed GitHub build provenance. The [verification tool](https://gyng.github.io/resume/verify/) checks a PDF locally in your browser and provides the signature-verification command.
 
 [Build and verification instructions](CONTRIBUTING.md).

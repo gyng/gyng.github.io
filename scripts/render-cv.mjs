@@ -30,13 +30,15 @@ const buildUrl = inActions
   ? `https://github.com/${repository}/actions/runs/${runId}/attempts/${attempt}`
   : null;
 const verificationUrl = 'https://gyng.github.io/resume/verify/';
-const sourceLabel = `Source hash: <code>${sourceHash.slice(0, 12)}</code>`;
+const attestationUrl = inActions
+  ? `https://gyng.github.io/resume/attestations/${runId}-${attempt}.html`
+  : null;
 const sourceReference = inActions
-  ? `<a href="https://github.com/${repository}/blob/${commit}/resume/index.md">${sourceLabel}</a>`
-  : sourceLabel;
+  ? `<a href="https://github.com/${repository}/commit/${commit}">Source commit: <code>${commit.slice(0, 12)}</code></a>`
+  : `Source hash: <code>${sourceHash.slice(0, 12)}</code>`;
 const footer = `<p class="cv-provenance">${sourceReference} ·
 <a href="${verificationUrl}">Verify resume PDF</a> ·
-${inActions ? `<a href="${buildUrl}">Build &amp; signatures</a>` : 'Unsigned local build'}</p>`;
+${inActions ? `<a href="${attestationUrl}">Build attestation</a>` : 'Unsigned local build'}</p>`;
 const browser = await chromium.launch({
   executablePath: process.env.CHROME_PATH || undefined,
 });

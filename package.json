@@ -8,7 +8,7 @@
     "lint": "oxlint --deny-warnings scripts resume/verify/verify.js",
     "build:cv": "node scripts/render-cv.mjs",
     "verify:cv": "node scripts/verify-cv.mjs",
-    "test:cv": "node --test scripts/test-cv-verification.mjs"
+    "test:cv": "node --test scripts/test-cv-*.mjs"
   },
   "devDependencies": {
     "marked": "18.1.1",
